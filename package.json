@@ -1,0 +1,31 @@
+{
+  "name": "ghost_rush",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohendrick1223/ghost_rush.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ohendrick1223/ghost_rush/issues"
+  },
+  "homepage": "https://github.com/ohendrick1223/ghost_rush#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.1",
+    "body-parser": "^1.15.2",
+    "boom": "^4.2.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
+    "knex": "^0.12.6",
+    "morgan": "^1.7.0",
+    "pg": "^6.1.0"
+  }
+}
