@@ -2,7 +2,7 @@
   "name": "ghost_rush",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,7 @@
     "body-parser": "^1.15.2",
     "boom": "^4.2.0",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.2.1",
     "knex": "^0.12.6",
