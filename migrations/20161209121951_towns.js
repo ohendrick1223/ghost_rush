@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name').notNullable().defaultTo('Unnamed ghost town');
     table.integer('yr_est').defaultTo();
-    table.integer('yr_abnd').defaultTo();
+    table.string('yr_abnd').defaultTo();
     table.text('description_then').defaultTo('');
     table.text('description_now').defaultTo('');
     table.string('cemetery').defaultTo('');
