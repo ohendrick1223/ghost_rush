@@ -44,12 +44,12 @@ app.use(express.static(path.join('public')));
 
 // const users = require('./routes/users');
 const towns = require('./routes/towns');
-// const tokens = require('./routes/tokens');
+const auth = require('./routes/auth');
 // const user_town_lists = require('./routes/user_town_lists');
 
 // app.use(users);
 app.use(towns);
-// app.use(tokens);
+app.use(auth);
 // app.use(user_town_lists);
 
 app.use((_req, res) => {
