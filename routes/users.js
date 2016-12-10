@@ -1,4 +1,4 @@
-//TODO: post new user (route /signup(registration))
+//TODO:
 // get route for users to get their user info/profile
 //patch (stretch) user can update email/username/pw/location
 //Delete-user can delete their profile & Admin can delete all
@@ -18,6 +18,7 @@ router.post('/users', (req, res, next) => {
   const { username, email, password, location_city, location_state } = req.body;
 console.log("i'm getting to the post");
 console.log(req.body.email);
+console.log(req.body.username);
   if(!email || !email.trim()) {
     return next(boom.create(400, 'Email must not be blank'));
   }
@@ -36,6 +37,16 @@ console.log(req.body.email);
     if (exists) {
       throw boom.create(400, 'Email already exists');
     }
+    //Trying to get error handling for username to work, no luck so far, going to come back to this later if time permits.
+  // knex('users')
+  // .select(knex.raw('1=1'))
+  // .where('username', username)
+  // .first()
+  // .then((alreadyExists) => {
+  //   if(alreadyExists) {
+  //     throw boom.create(400, 'Username already exists');
+  //   }
+  // })
     return bcrypt.hash(password, 12);
   })
 
