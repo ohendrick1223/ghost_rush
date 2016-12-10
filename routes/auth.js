@@ -1,6 +1,5 @@
 //TODO:
 //post user (login)
-//delete user (log out)
 'use strict';
 
 const bcrypt = require('bcrypt-as-promised');
@@ -90,6 +89,11 @@ router.post('/auth', (req, res, next) => {
         });
 });
 
+router.delete('/auth/:id', (req, res) => {
+  console.log(res.cookie);
+  res.clearCookie('token');
+  res.send(true);
+});
 
 
 module.exports = router;
