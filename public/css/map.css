@@ -4,13 +4,33 @@
   height: 100%;
 }*/
 #map {
-  width: 75%;
-  height: 65%;
+  width: 700px;
+  height: 500px;
   background-color: #CCC;
   margin: auto;
+
+}
+
+.markerInfoPhoto {
+  width: 250px;
+  height: auto;
+  margin: auto;
+  display: block;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+/*set the size of greeting and instructions*/
+#mapTitle{
+  text-align: center;
+  margin:auto;
+  padding: 10px;
+}
+#footerLogOut{
+  float: right;
+  margin-right: 30px;
+}
