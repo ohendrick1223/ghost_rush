@@ -9,6 +9,13 @@
   background-color: #CCC;
   margin: auto;
 }
+
+.markerInfoPhoto {
+  width: 250px;
+  height: auto;
+  margin: auto;
+  display: block;
+}
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
