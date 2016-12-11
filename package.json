@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:latest",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "./node_modules/.bin/mocha -w"
   },
   "repository": {
     "type": "git",
@@ -35,5 +36,10 @@
   },
   "engines": {
     "node": "7.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
   }
 }
