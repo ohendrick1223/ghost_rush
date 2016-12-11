@@ -1,5 +1,3 @@
-//TODO:
-//post user (login)
 'use strict';
 
 const bcrypt = require('bcrypt-as-promised');
