@@ -1,0 +1,41 @@
+.town_profile_first {
+  height: 260px;
+}
+
+.town_profile_second {
+  height: 260px;
+}
+
+#townPhoto {
+  height: inherit;
+  background-color: blue
+}
+
+#townName {
+  height: inherit;
+  width: 33%;
+  background-color: yellow
+}
+
+#visit_buttons {
+  height: inherit;
+  width: 33%;
+  background-color: blue
+}
+
+#townDescThen {
+  height: inherit;
+  background-color: red
+}
+
+#townDescNow {
+  height: inherit;
+  width: 33%;
+  background-color: green
+}
+
+#townMap {
+  height: inherit;
+  width: 33%;
+  background-color: red
+}

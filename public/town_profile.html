@@ -7,13 +7,14 @@
   <title>Ghost Rush</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="../public/css/styles.css">
+  <link rel="stylesheet" href="../public/css/town_profile.css">
 </head>
 
 <body>
   <header>
     <nav role="navigation" id="nav-header">
         <div class="nav-wrapper container">
-          <a id="mainLogo" href="#" class="brand-logo"><img src="../images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+          <a id="mainLogo" href="#" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="#" id="navLink1">Navbar Link</a></li>
           </ul>
@@ -30,6 +31,21 @@
       </nav>
   </header>
   <main>
+
+
+<div class = "container townProfiles">
+  <div class = "row town_profile_first">
+    <div class = "col l4" id = "townPhoto">town_photo</div>
+    <div class = "col l4" id = "townName">town_name</div>
+    <div class = "col l4" id = "visit_buttons">visit_buttons</div>
+  </div>
+
+  <div class = "row town_profile_second">
+    <div class = "col l4" id = "townDescThen">desc_then</div>
+    <div class = "col l4" id = "townDescNow">desc_now</div>
+    <div class = "col l4" id = "townMap">map</div>
+  </div>
+</div>
 
   </main>
   <footer class="page-footer">
