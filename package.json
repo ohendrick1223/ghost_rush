@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:latest",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +32,8 @@
     "knex": "^0.12.6",
     "morgan": "^1.7.0",
     "pg": "^6.1.0"
+  },
+  "engines": {
+    "node": "7.1.0"
   }
 }
