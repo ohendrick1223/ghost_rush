@@ -1,81 +1,78 @@
-//TODO:
-
-//Post (photos/comments STRETCH)
-//Post (new town STRETCH)
-
+//TODO://Post (photos/comments STRETCH)
 
 'use strict';
 
 const boom = require('boom');
 const express = require('express');
 const knex = require('../knex');
-// const { camelizeKeys, decamelizeKeys } = require('humps');
 const router = express.Router();
 
+//this route gets a list of all towns
 router.get('/towns', (req, res, next) => {
-  knex('towns')
-  .orderBy('name')
-  .then((data) => {
-    const towns = data;
-    res.send(towns)
-  })
-  .catch((err => {
-    next(err);
-  }));
+    knex('towns')
+        .orderBy('name')
+        .then((data) => {
+            const towns = data;
+            res.send(towns);
+        })
+        .catch((err => {
+            next(err);
+        }));
 });
 
+//this route gets any town by id
 router.get('/towns/:id', (req, res, next) => {
-  const id = Number.parseInt(req.params.id);
+    const id = Number.parseInt(req.params.id);
 
-  if (Number.isNaN(id)) {
-    return next();
-  }
-
-  knex('towns')
-  .where('id', id)
-  .then((data) => {
-    if (!data) {
-      throw boom.create(404, 'Not Found');
+    if (Number.isNaN(id)) {
+        return next();
     }
-    const town = data;
 
-    res.send(town);
-  })
-  .catch((err) => {
-    next(err);
-  });
+    knex('towns')
+        .where('id', id)
+        .then((data) => {
+            if (!data) {
+                throw boom.create(404, 'Not Found');
+            }
+            const town = data;
+
+            res.send(town);
+        })
+        .catch((err) => {
+            next(err);
+        });
 });
 
+//this route deletes a town by id, TODO:need to add permissions for only an admin to have access to deleting a town.
 router.delete('/towns/:id', (req, res, next) => {
-  const id = Number.parseInt(req.params.id);
+    const id = Number.parseInt(req.params.id);
 
-  if (Number.isNaN(id)) {
-    return next ();
-  }
-
-  var town;
-
-  knex('towns')
-  .where('id', id)
-  .then((data) => {
-    if (!data) {
-      throw boom.create(404, 'Not Found');
+    if (Number.isNaN(id)) {
+        return next();
     }
+    var town;
 
-    town = data;
+    knex('towns')
+        .where('id', id)
+        .then((data) => {
+            if (!data) {
+                throw boom.create(404, 'Not Found');
+            }
 
-    return knex('towns')
-    .where('id', id)
-    .del();
-  })
-  .then(() => {
-    delete town.id;
+            town = data;
 
-    res.send(town);
-  })
-  .catch((err) => {
-    next(err);
-  });
+            return knex('towns')
+                .where('id', id)
+                .del();
+        })
+        .then(() => {
+            delete town.id;
+
+            res.send(town);
+        })
+        .catch((err) => {
+            next(err);
+        });
 });
 
 module.exports = router;
