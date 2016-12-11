@@ -1,8 +1,8 @@
-// //TODO: 1. Get route for getting a list of added towns on profile page
-// //2. Post route for adding a ghost town to the profile page
-// //3. Patch route for changing ghost town object/card from 'want to go' to 'been there' & vice versa.
-// //4. Delete route for removing a town card/object from the list of 'want to go' & 'been there'
-//
+// // //TODO: 1. Get route for getting a list of added towns on profile page
+// // //2. Post route for adding a ghost town to the profile page
+// // //3. Patch route for changing ghost town object/card from 'want to go' to 'been there' & vice versa.
+// // //4. Delete route for removing a town card/object from the list of 'want to go' & 'been there'
+// //
 // 'use strict';
 //
 // const boom = require('boom');
