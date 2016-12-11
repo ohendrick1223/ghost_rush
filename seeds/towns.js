@@ -9,6 +9,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 1,
                     name: 'Central City',
+                    photo_url: 'http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg',
                     yr_est: 1859,
                     yr_abnd: 'Still Alive',
                     description_then: "Founded in 1859, it soon acquired the reputation of being in the middle of 'the richest square mile on earth.' By the end of its second year, most of the placer gold was gone which forced hard rock mining into being. Over speculation of some mining stocks created a real depression for a while, but the area survived and had good years during the '70s and '80s. Like most other mining towns of the era, Central City had its share of fires that ultimately resulted in brick being the material of choice with which to rebuild the town.",
@@ -22,6 +23,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 2,
                     name: 'Teller City',
+                    photo_url: 'http://www.passportintime.com/images/co01_mb-r_tellercity_oldhot.jpg',
                     yr_est: 1879,
                     yr_abnd: 1884,
                     description_then: 'By 1882, population exceeded 1800. 40 room hotel, 27 saloons, hundreds of log cabins',
@@ -35,6 +37,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 3,
                     name: 'Silver Plume',
+                    photo_url: 'http://www.uncovercolorado.com/wp-content/uploads/2011/11/2011-11-16_Silver-Plume-Main-Street-Sign-1000x500-650x325.jpg',
                     yr_est: 1870,
                     yr_abnd: 'Still Alive',
                     description_then: "Had own newspaper, The Coloradoan. Known for miner who's fiance died the eve of their wedding. He retired to his cabin nightly to drink and play the violin. The townspeople would listen to him until one day, the final violin note was followed by a gunshot. The miner was found with a bullet through his heart and burial instructions he wrote.",
@@ -48,6 +51,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 4,
                     name: 'Independence',
+                    photo_url: 'https://en.wikipedia.org/wiki/File:Abandoned_log_cabins,_Independence,_CO.jpg',
                     yr_est: 1879,
                     yr_abnd: 1899,
                     description_then: 'Legend has it that prospectors discovered the Independence Gold Lode on July 4, 1879. A tent city sprang up that summer, and by 1880 there were 300 people living in the camp.  By 1882 the Town of Independence had over 40 businesses with three post offices and an estimated population of 1,500. A miner could get room and board for $2 at the New England House, a boarding house on the east end of Main Street.',
@@ -61,6 +65,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 5,
                     name: 'Crystal',
+                    photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Crystal_Mill%2C_Colorado.jpg/800px-Crystal_Mill%2C_Colorado.jpg',
                     yr_est: 1881,
                     yr_abnd: 1915,
                     description_then: "Crystal was incorporated on July 8, 1881, but mined as early as the 1860s. At its peak, Crystal had 400+ residents in Crystal and the surrounding mining claims, two newspapers, a pool hall, a men's club, a barber shop and two hotels.",
@@ -74,6 +79,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 6,
                     name: "Ashcroft",
+                    photo_url: 'http://aspenhistory.org/wp-content/uploads/2015/07/tours-museum_images_ashcroft41.jpg',
                     yr_est: 1880,
                     yr_abnd: 1939,
                     description_then: 'Population of 2,000 with 2 newspapers, a school, sawmill, small smelter, and 20 saloons.',
@@ -87,6 +93,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 7,
                     name: "St Elmo",
+                    photo_url: 'https://static1.squarespace.com/static/5537f7d8e4b0dacdf31a3305/t/56c14133cf80a1dd4319c578/1455505765867/Cash-Williams+Building+St+Elmo+Colorado',
                     yr_est: 1880,
                     yr_abnd: 'Still Alive',
                     description_then: "St. Elmo was originally named Forest City but was later changed because of the multitude of towns with the same name. The name St. Elmo was chosen by Griffith Evans, one of the founding fathers, who was reading a novel with the same title. The town was at its peak in the 1890s, when it included a telegraph office, general store, town hall, 5 hotels, saloons, dancing halls, a newspaper office, and a school house. The Denver, South Park and Pacific Railroad line ran through St. Elmo. There were 150 patented mine claims within the area. The Mary Murphy Mine was the largest and most successful mine in the area. The Mary Murphy Mine recovered over $60,000,000 worth of gold while it was in operation. While the other mines eventually shut down, the Mary Murphy Mine continued to operate until the railroad was abandoned in 1922. Once the mining industry shut down, St. Elmo drastically declined in population. Miners searched elsewhere for gold and silver and the business district in St. Elmo closed down as well. Few people continued to live in the town. Postal service was discontinued in 1952 after the death of St. Elmo's postmaster.",
@@ -100,6 +107,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 8,
                     name: 'Animas Fork',
+                    photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/2006-07-19_Animas_Forks%2C_Colorado.jpg/1920px-2006-07-19_Animas_Forks%2C_Colorado.jpg',
                     yr_est: 1873,
                     yr_abnd: 1920,
                     description_then: "The town's first log cabin was built in 1873 and by 1876 the community had become a bustling mining community. At that time the town contained 30 cabins, a hotel, a general store, a saloon, and a post office. By 1883 450 people lived in Animas Forks.  Every fall the residents of Animas Forks migrated en masse to the warmer town of Silverton. In 1884 a 23-day blizzard inundated the town with 25 feet (7.6 m) of snow, the residents had to dig tunnels to get from building to building. ",
@@ -113,6 +121,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 9,
                     name: 'Gilman',
+                    photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/DSCN3044_gilmancliff_e_600.jpg/550px-DSCN3044_gilmancliff_e_600.jpg',
                     yr_est: 1886,
                     yr_abnd: 1984,
                     description_then: "The town of Gilman and nearby mining operations were developed in the 1880s by John Clinton, a prospector, judge, and speculator from nearby Redclliff. In 1887, gold and silver were discovered in two vertical chimneys at the Ground Hog Mine, which continued to produce gold and silver ore until the 1920s.",
@@ -126,6 +135,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 10,
                     name: "Caribou",
+                    photo_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/CaribouCO-2005.jpg/220px-CaribouCO-2005.jpg',
                     yr_est: 1869,
                     yr_abnd: 1944,
                     description_then: 'Produced over $8 million in silver before closing leading to Colorado being called The Silver State. President Grant once vsited and his pathway was lined with 70 silver bricks.',
@@ -139,6 +149,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 11,
                     name: "MatVille",
+                    photo_url: 'http://i.imgur.com/M5kL71b.jpg',
                     yr_est: 1843,
                     yr_abnd: 'Still Alive',
                     description_then: "Ancient as the gold the town was built.",
@@ -152,6 +163,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 12,
                     name: "Teddi Town",
+                    photo_url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQCaUz-6a0UIrjL3lQM4POBV4PJATxYruDg7R46szGGSOZnLLb7Kw',
                     yr_est: 1820,
                     yr_abnd: 'Still Alive',
                     description_then: "Silver veins were plentiful!",
