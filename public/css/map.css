@@ -4,10 +4,11 @@
   height: 100%;
 }*/
 #map {
-  width: 75%;
-  height: 65%;
+  width: 700px;
+  height: 500px;
   background-color: #CCC;
   margin: auto;
+
 }
 
 .markerInfoPhoto {
@@ -21,3 +22,15 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+/*set the size of greeting and instructions*/
+#mapTitle{
+  text-align: center;
+  margin:auto;
+  padding: 10px;
+}
+#footerLogOut{
+  float: right;
+  margin-right: 30px;
+}

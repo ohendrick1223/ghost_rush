@@ -1,8 +1,8 @@
-//TODO: 1. Get route for getting a list of added towns on profile page
-//2. Post route for adding a ghost town to the profile page
-//3. Patch route for changing ghost town object/card from 'want to go' to 'been there' & vice versa.
-//4. Delete route for removing a town card/object from the list of 'want to go' & 'been there'
-
+// //TODO: 1. Get route for getting a list of added towns on profile page
+// //2. Post route for adding a ghost town to the profile page
+// //3. Patch route for changing ghost town object/card from 'want to go' to 'been there' & vice versa.
+// //4. Delete route for removing a town card/object from the list of 'want to go' & 'been there'
+//
 'use strict';
 
 const boom = require('boom');
@@ -42,27 +42,32 @@ const authorize = function(req, res, next) {
 
 //reference line 60 for fixing error.
 router.post('/user_town_lists', (req, res, next) => {
-  console.log(req.body.towns_id);
+  // console.log(req.body.towns_id);
   const towns_id = Number.parseInt(req.body.towns_id);
   const users_id = Number.parseInt(req.body.users_id);
-  console.log(users_id);
+
+
+
   if (!Number.isInteger(towns_id)) {
     return next(boom.create(400, 'towns ID must be an integer'));
   }
-console.log(towns_id);
+  console.log(users_id);
   knex('towns')
-    .where('id', towns_id)
+    .where({
+      'id': towns_id
+    })
     .first()
     .then((towns) => {
       if (!towns) {
         throw boom.create(404, 'towns not found');
       }
+      console.log(users_id);
 //need to define users_id. Currently not posting.
-      const insert_user_town_list = { towns_id, users_id: req.token.users_id
+      const insert_user_town_list = { towns_id
        };
 
       return knex('user_town_lists')
-        .insert (insert_user_town_list, '*');
+        .insert(insert_user_town_list), "*";
     })
     .then((data) => {
       const user_town_list = data[0];

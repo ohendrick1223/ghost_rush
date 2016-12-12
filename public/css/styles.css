@@ -1,0 +1,34 @@
+/*.logo-small {
+  height: 100px;
+  width: auto;
+}*/
+nav, .nav-wrapper {
+  min-height: 80px;
+  line-height: 80px;
+}
+@media only screen and (min-width: 601px)
+#nav-header, nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+  height: 80px;
+  line-height: 80px;
+}
+main {
+  padding-top: 1.2rem;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.border {
+  border-color: black;
+  border-style: solid;
+  border-width: 0.5px;
+  margin: 15px;
+
+
+}

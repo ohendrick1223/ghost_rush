@@ -1,4 +1,15 @@
 'use strict';
+console.log("I'm loaded");
+/*function init() {
+    var myLatlng = new google.maps.LatLng(54.559322,-4.174804); // Add the coordinates
+    var mapOptions = {
+        center: myLatlng,
+        zoom: 6, // The initial zoom
+        minZoom: 6, // Minimum zoom
+        maxZoom: 15 // Maximum zoom
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions); // Render the map within the empty div
+}*/
 
 // Add Location, Title, and Image
 function init() {
