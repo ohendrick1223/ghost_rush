@@ -25,6 +25,34 @@ function init() {
     });
 
     // map markers
+    var centralCity = {
+        lat: 39.801932,
+        lng: -105.514164
+    };
+
+    var contentString = '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<a href = "/town_profile.html?id=1" <h1 id="firstHeading" class="firstHeading">Central City</h1></a>' +
+        '<div id="bodyContent">' +
+        '<p><b>Central City</b>, established in 1859, was known as being in the middle of "the richest square mile on earth" due to large amounts of gold. ' +
+        'The town is still inhabited, and its appearance is very similar to how it looked 100 years ago.</p>' +
+        '<img class="markerInfoPhoto" src = "http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg"</div>' + '</div>' + '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+        position: centralCity,
+        map: map,
+        title: 'Central City'
+    });
+
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+    
     var tellerCity = {
         lat: 40.433316,
         lng: -106.003351
@@ -49,34 +77,6 @@ function init() {
         position: tellerCity,
         map: map,
         title: 'Teller City'
-    });
-
-    marker.addListener('click', function() {
-        infowindow.open(map, marker);
-    });
-
-    var centralCity = {
-        lat: 39.801932,
-        lng: -105.514164
-    };
-
-    var contentString = '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<a href = "/town_profile.html?id=1" <h1 id="firstHeading" class="firstHeading">Central City</h1></a>' +
-        '<div id="bodyContent">' +
-        '<p><b>Central City</b>, established in 1859, was known as being in the middle of "the richest square mile on earth" due to large amounts of gold. ' +
-        'The town is still inhabited, and its appearance is very similar to how it looked 100 years ago.</p>' +
-        '<img class="markerInfoPhoto" src = "http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg"</div>' + '</div>' + '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    var marker = new google.maps.Marker({
-        position: centralCity,
-        map: map,
-        title: 'Central City'
     });
 
     marker.addListener('click', function() {
@@ -289,8 +289,8 @@ function init() {
         '</div>' +
         '<a href = "/town_profile.html?id=10" <h1 id="firstHeading" class="firstHeading">Caribou</h1></a>' +
         '<div id="bodyContent">' +
-        '<p><b>Caribou</b>, established in 1886, was founded for gold and silver mining. ' +
-        'It was abandoned in 1984 by the EPA due to toxic pollutants in the water. Gilman is currently on private property and off limits to the public.</p>' +
+        '<p><b>Caribou</b>, established in 1869, produced over $8 million in silver before closing leading to Colorado being called "The Silver State." ' +
+        'Most of the town was destroyed by fire in 1899, but a few buildings remain.</p>' +
         '<img class="markerInfoPhoto" src = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/CaribouCO-2005.jpg/220px-CaribouCO-2005.jpg"</div>' + '</div>' + '</div>';
 
     var infowindow = new google.maps.InfoWindow({
