@@ -3,6 +3,7 @@
 
 'use strict';
 
+// const bcrypt = require('../bcrypt');
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
@@ -20,9 +21,12 @@ router.post('/users', (req, res, next) => {
         location_city,
         location_state
     } = req.body;
-    console.log("i'm getting to the post");
+    // console.log("i'm getting to the post");
     console.log(req.body.email);
     console.log(req.body.username);
+    console.log(req.body.password);
+    console.log(req.body.location_city);
+    console.log(req.body.location_state);
     if (!email || !email.trim()) {
         return next(boom.create(400, 'Email must not be blank'));
     }
@@ -32,7 +36,12 @@ router.post('/users', (req, res, next) => {
     if (!username || !username.trim()) {
         return next(boom.create(400, 'Username must not be blank'));
     }
-
+    if (!location_city || !location_city.trim()) {
+        return next();
+    }
+    if (!location_state || !location_state.trim()) {
+        return next();
+    }
     knex('users')
         .select(knex.raw('1=1'))
         .where('email', email)
@@ -64,9 +73,9 @@ router.post('/users', (req, res, next) => {
             const insertUser = {
                 username,
                 email,
-                hashed_password,
                 location_city,
-                location_state
+                location_state,
+                hashed_password
             };
 
             return knex('users')
