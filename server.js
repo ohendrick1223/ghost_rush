@@ -10,7 +10,7 @@ const app = express();
 app.disable('x-powered-by');
 
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
 switch (app.get('env')) {
@@ -33,24 +33,24 @@ const path = require('path');
 app.use(express.static(path.join('public')));
 
 // CSRF protection
-//Look into this
-// app.use((req, res, next) => {
-//   if (/json/.test(req.get('Accept'))) {
-//     return next();
-//   }
-//
-//   res.sendStatus(406);
-// });
+// Look into this
+app.use((req, res, next) => {
+  if (/json/.test(req.get('Accept'))) {
+    return next();
+  }
+
+  res.sendStatus(406);
+});
 
 const users = require('./routes/users');
 const towns = require('./routes/towns');
 const auth = require('./routes/auth');
-const user_town_lists = require('./routes/user_town_lists');
+// const user_town_lists = require('./routes/user_town_lists');
 
 app.use(users);
 app.use(towns);
 app.use(auth);
-app.use(user_town_lists);
+// app.use(user_town_lists);
 
 app.use((_req, res) => {
   res.sendStatus(404);
