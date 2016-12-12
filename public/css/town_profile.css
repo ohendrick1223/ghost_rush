@@ -1,0 +1,55 @@
+.first_row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 260px;
+}
+
+.second_row {
+  height: 260px;
+}
+
+#townPhoto {
+width: 33%;
+height: 250px;
+/*background-color: blue;*/
+}
+
+img#image {
+  display: block;
+  margin-top: 30px;
+}
+
+#townDetails {
+  width: 33%;
+  height: 250px;
+  /*background-color: yellow*/
+}
+
+.buttons {
+  height: 250px;
+  width: 33%;
+  /*background-color: blue*/
+}
+
+.btn {
+  margin-left: 25%;
+  margin-top: 50px;
+}
+
+#townDescThen {
+  height: inherit;
+  width: 33%;
+  /*background-color: red*/
+}
+
+#townDescNow {
+  height: inherit;
+  width: 33%;
+  /*background-color: green*/
+}
+
+#townMap {
+  height: inherit;
+  width: 33%;
+  /*background-color: red*/
+}
