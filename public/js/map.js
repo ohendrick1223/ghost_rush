@@ -41,7 +41,7 @@ function init() {
     marker.addListener('click', function() {
         infowindow.open(map, marker);
     });
-    
+
     var tellerCity = {
         lat: 40.433316,
         lng: -106.003351
@@ -195,7 +195,7 @@ function init() {
         '<a href = "/town_profile.html?id=7" <h1 id="firstHeading" class="firstHeading">St Elmo</h1></a>' +
         '<div id="bodyContent">' +
         '<p><b>St Elmo</b>, established in 1880, was initially mined for gold then silver and finally hard rock. ' +
-        'There was a St Elmo\'s fire in 2002 that burned down the town hall and a few other buildings. However, several buildings still stand and tourism brings many people there each year.</p>' +
+        'There was a St Elmo\'s fire in 2002 that burned down the town hall and a few other buildings. However, several buildings still stand, and tourism brings many people there each year.</p>' +
         '<img class="markerInfoPhoto" src = "https://static1.squarespace.com/static/5537f7d8e4b0dacdf31a3305/t/56c14133cf80a1dd4319c578/1455505765867/Cash-Williams+Building+St+Elmo+Colorado"</div>' + '</div>' + '</div>';
 
     var infowindow = new google.maps.InfoWindow({
@@ -251,7 +251,7 @@ function init() {
         '<a href = "/town_profile.html?id=9" <h1 id="firstHeading" class="firstHeading">Gilman</h1></a>' +
         '<div id="bodyContent">' +
         '<p><b>Gilman</b>, established in 1886, was founded for gold and silver mining. ' +
-        'It was abandoned in 1984 by the EPA due to toxic pollutants in the water. Gilman is currently on private property and off limits to the public.</p>' +
+        'It was abandoned in 1984 by order of the EPA due to toxic pollutants in the water. Gilman is currently on private property and off limits to the public.</p>' +
         '<img class="markerInfoPhoto" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/DSCN3044_gilmancliff_e_600.jpg/550px-DSCN3044_gilmancliff_e_600.jpg"</div>' + '</div>' + '</div>';
 
     var infowindow = new google.maps.InfoWindow({
@@ -278,7 +278,7 @@ function init() {
         '</div>' +
         '<a href = "/town_profile.html?id=10" <h1 id="firstHeading" class="firstHeading">Caribou</h1></a>' +
         '<div id="bodyContent">' +
-        '<p><b>Caribou</b>, established in 1869, produced over $8 million in silver before closing leading to Colorado being called "The Silver State." ' +
+        '<p><b>Caribou</b>, established in 1869, produced over $8 million in silver. ' +
         'Most of the town was destroyed by fire in 1899, but a few buildings remain.</p>' +
         '<img class="markerInfoPhoto" src = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/CaribouCO-2005.jpg/220px-CaribouCO-2005.jpg"</div>' + '</div>' + '</div>';
 
