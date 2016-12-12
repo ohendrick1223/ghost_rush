@@ -1,15 +1,14 @@
-.town_profile_first {
+.first_row {
   height: 260px;
 }
 
-.town_profile_second {
+.second_row {
   height: 260px;
 }
 
 #townPhoto {
 max-width: 100%;
-max-height: 250px;
-  background-color: blue
+max-height: 100%;
 }
 
 #townDetails {
@@ -32,6 +31,7 @@ max-height: 250px;
 
 #townDescThen {
   height: inherit;
+  width: 33%;
   background-color: red
 }
 
