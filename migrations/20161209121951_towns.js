@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('photo_url').notNullable().defaultTo('No photo available');
     table.integer('yr_est').defaultTo();
     table.string('yr_abnd').defaultTo();
+    table.text('short_desc').defaultTo('');
     table.text('description_then').defaultTo('');
     table.text('description_now').defaultTo('');
     table.string('cemetery').defaultTo('');
