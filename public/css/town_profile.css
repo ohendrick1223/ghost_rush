@@ -1,4 +1,6 @@
 .first_row {
+  margin-top: 30px;
+  margin-bottom: 30px;
   height: 260px;
 }
 
@@ -7,8 +9,14 @@
 }
 
 #townPhoto {
-max-width: 100%;
-max-height: 100%;
+width: 33%;
+height: 250px;
+background-color: blue;
+}
+
+img#image {
+  display: block;
+  margin-top: 30px;
 }
 
 #townDetails {
@@ -17,32 +25,31 @@ max-height: 100%;
   background-color: yellow
 }
 
-#visit_buttons {
+.buttons {
   height: 250px;
   width: 33%;
   background-color: blue
 }
 
-#btn {
-  /*float: left;
-  /*position: relative;
-  left: 30px;*/*/
+.btn {
+  margin-left: 25%;
+  margin-top: 50px;
 }
 
 #townDescThen {
   height: inherit;
   width: 33%;
-  background-color: red
+  /*background-color: red*/
 }
 
 #townDescNow {
   height: inherit;
   width: 33%;
-  background-color: green
+  /*background-color: green*/
 }
 
 #townMap {
   height: inherit;
   width: 33%;
-  background-color: red
+  /*background-color: red*/
 }
