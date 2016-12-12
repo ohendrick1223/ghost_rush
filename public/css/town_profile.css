@@ -11,7 +11,7 @@
 #townPhoto {
 width: 33%;
 height: 250px;
-background-color: blue;
+/*background-color: blue;*/
 }
 
 img#image {
@@ -22,13 +22,13 @@ img#image {
 #townDetails {
   width: 33%;
   height: 250px;
-  background-color: yellow
+  /*background-color: yellow*/
 }
 
 .buttons {
   height: 250px;
   width: 33%;
-  background-color: blue
+  /*background-color: blue*/
 }
 
 .btn {
