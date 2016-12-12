@@ -1,0 +1,31 @@
+                    short_desc: '<b>Central City</b>, established in 1859, was known as being in the middle of "the richest square mile on earth" due to large amounts of gold. The town is still inhabited, and looks very similar to how it looked 100 years ago.',
+
+
+                    short_desc: '<b>Teller City</b>, established in 1879, was founded due to large amounts of silver in the area. Now, a completely abandoned town, Teller City has numerous remains of log cabins.',
+
+
+                    short_desc: '<b>Silver Plume</b>, established in 1870, was founded for silver mining. It\'s known for a minor who was well loved by the community, but he tragically commited suicide when he was unable to find happiness after his fiance\'s death. The town has several buildings still standing.',
+
+
+                    short_desc: '<b>Independence</b>, established in 1879, was founded when gold was discovered on July 4, 1879. The town is no longer populated but is available for tours.',
+
+
+                    short_desc: '<b>Crystal</b>, established in 1881, was mined for silver as early as the 1860s. The town has a few summer residents and a few buildings still standing. Cabins can be rented during the summer, and Jeep tours are available.',
+
+
+                    short_desc: '<b>Ashcroft</b>, established in 1880, was mined for silver. Many of the buildings still standing have false fronts since a television series was filmed there during the 1950s.',
+
+
+                    short_desc: '<b>St Elmo</b>, established in 1880, was initially mined for gold then silver and finally hard rock. There was a St Elmo\'s fire in 2002 that burned down the town hall and a few other buildings. However, several buildings still stand, and tourism brings many people there each year.',
+
+
+                    short_desc: '<b>Gilman</b>, established in 1886, was founded for gold and silver mining. It was abandoned in 1984 by order of the EPA due to toxic pollutants in the water. Gilman is currently on private property and off limits to the public.',
+
+
+                    short_desc: '<b>Caribou</b>, established in 1869, produced over $8 million in silver before closing. Most of the town was destroyed by fire in 1899, but a few buildings remain.',
+
+
+                    short_desc: '<b>MatVille</b>, established in 1865, produced much gold before musical theatre became the primary source of revenue. It is still a thriving community today.',
+
+
+                    short_desc: '<b>Teddi Town</b>, established in 1883, was a silver mining town for several years. The town was destroyed by a 50-foot toddler in 1901, but a few buildings are still partially standing.',
