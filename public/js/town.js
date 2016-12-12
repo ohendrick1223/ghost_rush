@@ -1,31 +1,83 @@
 'use strict';
 
-$(function() {
+(function() {
 
 console.log("I'm ready!");
 
+  // const townID = window.QUERY_PARAMETERS.id;
+  // console.log(townID);
+  //
+  // if (!townID) {
+  //   window.location.href = '/index.html';
+  // }
 
-  const townID = window.QUERY_PARAMETERS.id;
-  console.log(townID);
+  //on click, add ajax call in function
 
-  if (!townID) {
-    window.location.href = '/index.html';
-  }
+  $('#townPhoto').on('click', function() {
+    console.log('clicked');
 
-  const renderTown = function(town) {
-    $('#image').attr({ src: town.photo_url, alt: town.name });
-    $('#townName').text(town.name);
-    $('#townLocation').text(town.latitude, town.longitude);
-    $('#townCemetery').text(town.cemetery);
-    $('#townEst').text(town.yr_est);
-    $('#townAbandon').text(town.yr_abnd);
-    $('#townMaterials').text(town.mineral_found);
-    $('#townTour').text(town.tour_avail);
-  };
+      var $xhr = $.ajax ({
+        method: 'GET',
+        url: '/towns/9',
+        dataType: 'json'
+        // console.log(data);
+      });
 
-  $('#townPhoto').onclick(function() {
-  console.log('clicked');
-});
+// var data = $xhr.responseText;
+// console.log(data);
+
+      $xhr.done(function(data) {
+        if ($xhr.status !== 200) {
+          return;
+        }
+        // var json = JSON.parse($xhr.responseText);
+        console.log(data);
+      });
+
+      $xhr.fail(function(err) {
+        console.log(err);
+      });
+  });
+
+
+
+  // const renderTown = function(town) {
+  //   $('#image').attr({ src: town.photo_url, alt: town.name });
+  //   $('#townName').text(town.name);
+  //   $('#townLocation').text(town.latitude, town.longitude);
+  //   $('#townCemetery').text(town.cemetery);
+  //   $('#townEst').text(town.yr_est);
+  //   $('#townAbandon').text(town.yr_abnd);
+  //   $('#townMaterials').text(town.mineral_found);
+  //   $('#townTour').text(town.tour_avail);
+  // };
+
+
+  function Town (town) {
+   const obj = town;
+   this.id = obj[ "id" ];
+   this.townPhoto = obj[ "photo_url" ];
+   this.townName = obj[ "name" ];
+   this.latitude = parseFloat( obj[ "latitude" ] );
+   this.longitude = parseFloat( obj[ "longitude" ] );
+   this.townCemetery = obj [ "cemetery" ];
+   this.townEst = obj ["yr_est"];
+   this.townAbandon = obj ["yr_abnd"];
+   this.townMaterials = obj ["mineral_found"];
+   this.townTour = obj ["tour_avail"];
+
+   Town.prototype.populateTown  = function populateTown () {
+     //function to render town
+       $('#image').attr({ src: town.photo_url, alt: town.name });
+       $('#townName').text(this.townName);
+       $('#townLocation').text(town.latitude, town.longitude);
+       $('#townCemetery').text(town.cemetery);
+       $('#townEst').text(town.yr_est);
+       $('#townAbandon').text(town.yr_abnd);
+       $('#townMaterials').text(town.mineral_found);
+       $('#townTour').text(town.tour_avail);
+     };
+   }
 
   // const attachListeners = function(book) {
   //   $('#deleteBook').click((event) => {
@@ -102,14 +154,14 @@ console.log("I'm ready!");
   //   });
   // };
 
-  $.getJSON(`/towns/${townID}`)
-    .done((town) => {
-      renderTown(town);
-      // attachListeners(book);
-    })
-    .fail(() => {
-      Materialize.toast('Unable to retrieve town', 3000);
-    });
+  // $.getJSON(`/towns/${townID}`)
+  //   .done((town) => {
+  //     renderTown(town);
+  //     // attachListeners(book);
+  //   })
+  //   .fail(() => {
+  //     Materialize.toast('Unable to retrieve town', 3000);
+  //   });
 
   // $.getJSON('/token')
   //   .done((isLoggedIn) => {
