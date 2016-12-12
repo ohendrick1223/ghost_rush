@@ -33,7 +33,7 @@ const path = require('path');
 app.use(express.static(path.join('public')));
 
 // CSRF protection
-Look into this
+// Look into this
 app.use((req, res, next) => {
   if (/json/.test(req.get('Accept'))) {
     return next();
@@ -45,12 +45,12 @@ app.use((req, res, next) => {
 const users = require('./routes/users');
 const towns = require('./routes/towns');
 const auth = require('./routes/auth');
-const user_town_lists = require('./routes/user_town_lists');
+// const user_town_lists = require('./routes/user_town_lists');
 
 app.use(users);
 app.use(towns);
 app.use(auth);
-app.use(user_town_lists);
+// app.use(user_town_lists);
 
 app.use((_req, res) => {
   res.sendStatus(404);

@@ -4,11 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha -w",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:latest",
-    "start": "nodemon server.js",
-    "test": "./node_modules/.bin/mocha -w"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +25,17 @@
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
     "boom": "^4.2.0",
+    "chai": "^3.5.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.2.1",
     "knex": "^0.12.6",
+    "mocha": "^3.2.0",
     "morgan": "^1.7.0",
-    "pg": "^6.1.0"
+    "node": "0.0.0",
+    "pg": "^6.1.1",
+    "test": "^0.6.0"
   },
   "engines": {
     "node": "7.1.0"
