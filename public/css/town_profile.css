@@ -7,20 +7,27 @@
 }
 
 #townPhoto {
-  height: inherit;
+max-width: 100%;
+max-height: 250px;
   background-color: blue
 }
 
-#townName {
-  height: inherit;
+#townDetails {
   width: 33%;
+  height: 250px;
   background-color: yellow
 }
 
 #visit_buttons {
-  height: inherit;
+  height: 250px;
   width: 33%;
   background-color: blue
+}
+
+#btn {
+  /*float: left;
+  /*position: relative;
+  left: 30px;*/*/
 }
 
 #townDescThen {
