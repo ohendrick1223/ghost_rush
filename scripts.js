@@ -1,3 +1,4 @@
+'use strict';
 jQuery(function($) {
     // Asynchronously Load the map API
     var script = document.createElement('script');

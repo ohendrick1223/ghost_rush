@@ -1,93 +1,168 @@
 'use strict';
-
 process.env.NODE_ENV = 'test';
 
-const assert = require('chai').assert;
-const { suite, test } = require('mocha');
-const bcrypt = require('bcrypt-as-promised');
 const request = require('supertest');
-const knex = require('../knex');
+const expect = require('chai').expect;
+// const { suite, test } = require('mocha');
+const mocha = require('mocha');
 const server = require('../server');
+const knex = require('../knex');
+// const assert = require('chai').assert;
 
-suite('users', () => {
-  before((done) => {
-    // knex.migrate.rollback()
-    knex.migrate.latest()
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
-  });
-  beforeEach((done) => {
-    knex.seed.run()
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
-  });
-  afterEach(function(done) {
-    knex.migrate.rollback()
-    .then(function() {
-      done();
-    });
-  });
+var allUsers = null;
 
-  test('POST /users', (done) => {
-  const password = 'ilikebigcats';
 
-  request(server)
-    .post('/users')
-    .set('Accept', 'application/json')
-    .set('Content-Type', 'application/json')
-    .send({
-      email: 'john.siracusa@gmail.com',
-      username: 'sir John',
-      password,
-      is_admin: false,
-      location_city: "Boulder",
+// suite('part1 users route', () => {
+
+//TODO add hardcoded users for the test to run the get method; check for the mistakes like too many users, -users, user without the username etc
+
+
+
+beforeEach(done => {
+  Promise.all([
+    knex('users').insert({id:2, username: "Dr Brew", email: "test@test.com", password: "bluebird", location_city: "Boulder", location_state: "Colorado"}),
+    knex('users').insert({id:3, username: "KittyCat", email: "test2@test.com", password: "redbird", location_city: "Fort Collins", location_state: "Colorado"}),
+    knex('users').insert({id:4, username: "GoodDog", email: "test3@test.com", password: "yellowbird", location_city: "Loveland", location_state: "Colorado"})
+  ]).then(() => done ());
+});
+console.log('users');
+
+afterEach(done => {
+  knex('users').del().then(() => done());
+});
+
+// beforeEach((done) => {
+//   knex.migrate.latest().then(() => {
+//     knex.seed.run().then(() =>{
+//       knex('users').then(users => {
+//         allUsers = users;
+//         done();
+//       });
+//     });
+//   });
+// });
+//
+// afterEach((done) => {
+//   knex.migrate.rollback()
+//   .then(() => {
+//     done();
+//   });
+// });
+
+
+
+xdescribe('GET /users', () => {
+    it('responds with JSON', done => {
+        request(server)
+            .get('/users')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+
+    it('returns an array of all users objects when responding with JSON', done => {
+    request(server)
+      .get('/users')
+      .end((err, res) => {
+        expect(res.body).to.deep.equal([{
+          id: 2,
+          username: "Dr Brew",
+          email: "test@test.com",
+          location_city: "Boulder",
+          location_state: "Colorado"
+        }, {
+          id: 3,
+          username: "KittyCat",
+          email: "test2@test.com",
+          location_city: "Fort Collins",
+          location_state: "Colorado"
+        }, {
+          id: 4,
+          username: "GoodDog",
+          email: "test3@test.com",
+          location_city: "Loveland",
+          location_state: "Colorado"
+        }]);
+        done();
+      });
+  });
+});
+
+
+
+//returning all towns
+//   test('GET /users', function() {
+//   it('respond with json', function(done) {
+//     request(server)
+//       .get('/users')
+//       .set('Accept', 'application/json')
+//       .expect(200)
+//       .end(function(err, res) {
+//         if (err) return done(err);
+//         done();
+//       });
+//   });
+// });
+//returning all towns insted of users, an it passing test
+//   test('GET /users/9000', () => {
+//     it('gets all users', done => {
+//       request(server)
+//       .get('/users')
+//       .set('Accept', 'application/json')
+//       .expect('Content-Type', /plain/)
+//       // .end((err,res) => {
+//       //   expect(res.body.length).to.equal(allUsers.length);
+//       .expect(404, 'Not Found', done);
+//         done();
+//
+//       // });
+//     });
+// });
+// //expected 404 "Not Found", got 200 "OK"
+// test('GET /users/-1', (done) => {
+//   request(server)
+//       .get('/users/-1')
+//       .set('Accept', 'application/json')
+//       .expect('Content-Type', /json/)
+//       .expect(404, 'Not Found', done);
+//   });
+
+describe('POST /users', () => {
+
+  var newUser = {
+    users: {
+      id: 5,
+      username: "Boo",
+      email: "testing@testing.com",
+      password:"agent007",
+      location_city: "Loveland",
       location_state: "Colorado"
-    })
-    .expect('Content-Type', /json/)
-    .expect(200, {
-      email: 'john.siracusa@gmail.com',
-      username: 'sir John',
-      is_admin: false,
-      location_city: "Boulder",
-      location_state: "Colorado"
-    })
-    .end((httpErr, _res) => {
-      if (httpErr) {
-        return done(httpErr);
-      }
+    }
+  };
 
-      knex('users')
-        .where('id', 2)
-        .first()
-        .then((user) => {
-          const hashedPassword = user.hashed_password;
+  it('responds with JSON', done => {
+    request(server)
+      .post('/users')
+      .type('form')
+      .send(newUser)
+      .expect('Content-Type', /json/)
+      .expect(200, done);
+  });
 
-          delete user.hashed_password;
-
-          assert.deepEqual(user, {
-            email: 'john.siracusa@gmail.com',
-            username: 'sir John',
-            is_admin: false,
-            location_city: "Boulder",
-            location_state: "Colorado"
-          });
-
-          const isMatch = bcrypt.compare(password, hashedPassword);
-
-          assert.isTrue(isMatch, "passwords don't match");
+  it('adds the new user to the database', done => {
+    request(server)
+      .post('/users')
+      .type('form')
+      .send(newUser)
+      .end((err, res) => {
+        knex('users').select().then(users => {
+          expect(users).to.deep.include(newUser.user);
           done();
-        })
-        .catch((dbErr) => {
-          done(dbErr);
         });
-    });
+      });
+  });
+
 });
+
+xdescribe('DELETE /users/:id', () => {
 });
+// });
