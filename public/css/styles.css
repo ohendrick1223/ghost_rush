@@ -24,8 +24,11 @@ main {
   flex: 1 0 auto;
 }
 
-.testBorder {
+.border {
   border-color: black;
-  border: solid;
+  border-style: solid;
+  border-width: 0.5px;
+  margin: 15px;
+
 
 }
