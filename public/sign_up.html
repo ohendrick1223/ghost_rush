@@ -4,58 +4,112 @@
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <title>Ghost Rush</title>
+  <title>Ghost Rush: Sign Up</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-  <link rel="stylesheet" href="../public/css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/forms.css">
 </head>
 
 <body>
   <header>
     <nav role="navigation" id="nav-header">
-        <div class="nav-wrapper container">
-          <a id="mainLogo" href="#" class="brand-logo"><img src="../images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#" id="navLink1">Navbar Link</a></li>
-          </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#" id="navLink2">Navbar Link</a></li>
-          </ul>
-
-          <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-            <li><a href="#">Navbar Link</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-        <!-- end nav-wrapper -->
-      </nav>
+      <div class="nav-wrapper container">
+        <a id="mainLogo" href="#" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="log_in.html" id="navLink1">Log In</a></li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+          <li><a href="log_in.html">Log In</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+      <!-- end nav-wrapper -->
+    </nav>
   </header>
   <main>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel form-card" id="signUpContainer">
+            <div class="row">
+              <h5>Sign Up for Ghost Rush</h5>
+            </div>
 
+            <div class="row">
+              <div class="input-field">
+                <input id="usernameInput" type="text" class="validate">
+                <label for="usernameInput">Username</label>
+              </div>
+            </div>
+            <!-- end username row -->
+            <div class="row">
+              <div class="input-field">
+                <input id="passPhraseInput" type="text" class="validate">
+                <label for="passPhraseInput">Passphrase</label>
+              </div>
+            </div>
+            <!-- end passphrase row -->
+            <div class="row">
+              <div class="input-field">
+                <input id="emailInput" type="text" class="validate">
+                <label for="emailInput">Email</label>
+              </div>
+            </div>
+            <!-- end email row -->
+            <div class="row">
+              <div class="col s6">
+                <div class="input-field">
+                  <input id="cityInput" type="text" class="validate">
+                  <label for="cityInput">City</label>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="input-field">
+                  <input id="stateInput" type="text" class="validate">
+                  <label for="stateInput">State</label>
+                </div>
+              </div>
+            </div>
+            <!-- end city, state row -->
+            <div class="row">
+              <button class="btn waves-effect waves-light" type="submit" name="signUpSubmitButton" id="signUpSubmitButton">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+            <!-- end submit button row -->
+          </div>
+          <!-- end sign-up container -->
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end main container -->
   </main>
   <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col s12">
-            <div class="left left-footer-link">
-              <a href="#">Contact</a>
-            </div>
-            <!-- end left footer link -->
-            <div class="right right-footer-link">
-              <a href="#">Help</a>
-            </div>
-            <!-- end right footer link -->
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="left left-footer-link">
+            <a href="#">Contact</a>
+          </div>
+          <!-- end left footer link -->
+          <div class="right right-footer-link">
+            <a href="#">Help</a>
+          </div>
+          <!-- end right footer link -->
 
-          </div>
         </div>
       </div>
-      <div class="footer-copyright">
-        <div class="container">
-          <div class="center-align">
-            © 2016 Ladies Exploration League. All rights reserved.
-          </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="center-align">
+          © 2016 Ladies Exploration League. All rights reserved.
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
 </body>
 
