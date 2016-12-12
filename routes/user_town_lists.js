@@ -5,12 +5,15 @@
 //
 'use strict';
 
+
+//token is undefined!!!!
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const router = express.Router();
-//
+
+
 const authorize = function(req, res, next) {
   const token = req.cookies.token;
 
@@ -18,35 +21,40 @@ const authorize = function(req, res, next) {
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
     }
-
+    console.log(token);
     req.token = decoded;
 
     next();
   });
 };
 
-// router.get('/user_town_lists', authorize, (req, res, next) => {
-//   knex('user_town_lists')
-//     .innerJoin('towns', 'towns.id', 'user_town_lists.towns_id')
-//     .where('user_town_lists.user_id', req.token.user_id)
-//     .orderBy('towns.name', 'ASC')
-//     .then((data) => {
-//       const list = data;
-//       console.log(list);
-//       res.send(list);
-//     })
-//     .catch((err) => {
-//       next(err);
-//     });
-// });
+router.get('/user_town_lists', authorize, function (req, res, next) {
+  console.log("token", req.token);
+
+  knex('user_town_lists')
+    .innerJoin('towns', 'towns.id', 'user_town_lists.towns_id')
+    .where ({
+      'id': req.body.user_id,
+      'user_town_lists.user_id': req.token.user_id
+    })
+    .orderBy('towns.name', 'ASC')
+    .then((data) => {
+      const list = data;
+      console.log(list);
+      res.send(list);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
 //reference line 60 for fixing error.
 router.post('/user_town_lists', (req, res, next) => {
-  // console.log(req.body.towns_id);
+  console.log(req.body.towns_id);
   const towns_id = Number.parseInt(req.body.towns_id);
   const users_id = Number.parseInt(req.body.users_id);
 
-
+console.log(typeof towns_id);
 
   if (!Number.isInteger(towns_id)) {
     return next(boom.create(400, 'towns ID must be an integer'));
@@ -63,11 +71,14 @@ router.post('/user_town_lists', (req, res, next) => {
       }
       console.log(users_id);
 //need to define users_id. Currently not posting.
-      const insert_user_town_list = { towns_id
+      const insert_user_town_list = {
+        visited: req.body.visited,
+        towns_id: req.body.towns_id,
+        users_id: req.body.users_id
        };
 
       return knex('user_town_lists')
-        .insert(insert_user_town_list), "*";
+        .insert(insert_user_town_list);
     })
     .then((data) => {
       const user_town_list = data[0];
