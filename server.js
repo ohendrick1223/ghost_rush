@@ -43,32 +43,30 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-//switched order of auth and users heroku deploy Monday night
-const users = require('./routes/users');
 const auth = require('./routes/auth');
+const users = require('./routes/users');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
-//testing for heroku deployment Monday night
-// const authorize = function(req, res, next) {
-//   const token = req.cookies.token;
-//
+const authorize = function(req, res, next) {
+  const token = req.cookies.token;
+
 //   //TODO:If a token exists - decode it and add the contents to req.user
 //
 //   //TODO:If no token exists - do nothing (i.e. next());
-//
-//   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-//       if (token) {
-//         req.user = decoded;
-//         console.log(req.user);
-//       }
-//       next();
-//   });
-// };
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (token) {
+        req.user = decoded;
+        console.log(req.user);
+      }
+      next();
+  });
+};
 
 //switched order of auth and users heroku deploy Monday night
-app.use(users);
 app.use(auth);
+app.use(users);
 app.use(towns);
 app.use(user_town_lists);
 
