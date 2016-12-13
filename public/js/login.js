@@ -8,7 +8,7 @@
 
   $('.button-collapse').sideNav();
 
-  $('#signUpContainer').submit((event) => {
+  $('#loginContainer').submit((event) => {
     event.preventDefault();
 
     const email = $('#loginEmailInput').val().trim();
