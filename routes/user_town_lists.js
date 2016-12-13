@@ -119,25 +119,26 @@ router.patch('/user_town_lists/:1', (req, res, next) => {
     });
 });
 
-// router.delete('/user_town_lists/:id', (req, res, next) => {
-//   const id = Number.parseInt(req.param.id);
-//
-//   if (Number.isNaN(id)){
-//     return next();
-//   }
-//
-//   var user_town_list;
-//
-//   knex('user_town_lists')
-//     .where('id', id)
-//     .first()
-//     .then((row) => {
-//       if (!row) {
-//         throw boom.create(404, 'Not Found');
-//       }
-//
-//
-//     })
-// });
+router.delete('/user_town_lists/:id', (req, res, next) => {
+  const id = Number.parseInt(req.param.id);
+
+  if (Number.isNaN(id)){
+    return next();
+  }
+
+  var user_town_list;
+
+  knex('user_town_lists')
+    .where('id', id)
+    .del()
+    .then(() => {
+      delete user_town_list.id;
+      res.send(user_town_list);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 
 module.exports = router;
