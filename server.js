@@ -43,8 +43,8 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-const auth = require('./routes/auth');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
@@ -64,9 +64,9 @@ const authorize = function(req, res, next) {
   });
 };
 
-//switched order of auth and users heroku deploy Monday night
-app.use(auth);
+
 app.use(users);
+app.use(auth);
 app.use(towns);
 app.use(user_town_lists);
 
