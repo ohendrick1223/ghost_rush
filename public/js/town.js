@@ -58,4 +58,8 @@ console.log("I'm ready!");
      $('#townDescNow').text(this.townDescNow);
    };
 
+//town map
+// function init() {
+//   var
+// }
 })();

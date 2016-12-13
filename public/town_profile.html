@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/town_profile.css">
+    <link rel="stylesheet" type="text/css" href="css/map.css">
 </head>
 
 <body>
@@ -70,7 +71,7 @@
     </div>
 
   </div>
-</div><!--Second Row Container-->
+</div><!--First Row Container-->
 
 <!--Second Row-->
 <div class = "container">
@@ -86,18 +87,17 @@
       <p id = "townDescNow"></p>
     </div>
 
-<!--TODO Figure out map on page-->
-    <!-- <div class = "col l4" id = "townMap">
+<!--Map-->
+    <div class = "col l4" id ="profileMap">
       <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=initMap">
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">
       </script>
-      <h5>Map Placeholder</h5>
-      <script src="js/map.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
-    </div> -->
+    </div>
 
   </div>
 </div><!--2nd Row Container-->
+
+<script src="js/map.js"></script>
 
   </main>
   <footer class="page-footer">

@@ -52,3 +52,9 @@ p#townDescThen {
   width: 33%;
   /*background-color: red*/
 }
+
+#profileMap {
+  width: 300px;
+  height: 500px;
+  background-color: yellow;
+}
