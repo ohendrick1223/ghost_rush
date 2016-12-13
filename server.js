@@ -39,12 +39,12 @@ app.use(express.static(path.join('public')));
 //   if (/json/.test(req.get('Accept'))) {
 //     return next();
 //   }
-// 
+//
 //   res.sendStatus(406);
 // });
 
-const auth = require('./routes/auth');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
@@ -64,8 +64,8 @@ const authorize = function(req, res, next) {
   });
 };
 
-app.use(auth);
 app.use(users);
+app.use(auth);
 app.use(towns);
 app.use(user_town_lists);
 
