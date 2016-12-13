@@ -51,9 +51,9 @@ const user_town_lists = require('./routes/user_town_lists');
 const authorize = function(req, res, next) {
   const token = req.cookies.token;
 
-  //TODO:If a token exists - decode it and add the contents to req.user
-
-  //TODO:If no token exists - do nothing (i.e. next());
+//   //TODO:If a token exists - decode it and add the contents to req.user
+//
+//   //TODO:If no token exists - do nothing (i.e. next());
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (token) {
@@ -63,6 +63,7 @@ const authorize = function(req, res, next) {
       next();
   });
 };
+
 
 app.use(users);
 app.use(auth);

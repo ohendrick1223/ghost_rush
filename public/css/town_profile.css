@@ -17,6 +17,8 @@ height: 250px;
 img#image {
   display: block;
   margin-top: 30px;
+  width: 300px;
+  height:200px;
 }
 
 #townDetails {
@@ -36,15 +38,15 @@ img#image {
   margin-top: 50px;
 }
 
-#townDescThen {
+p#townDescThen {
   height: inherit;
-  width: 33%;
+  /*width: 33%;*/
   /*background-color: red*/
 }
 
 #townDescNow {
   height: inherit;
-  width: 33%;
+  /*width: 33%;*/
   /*background-color: green*/
 }
 
