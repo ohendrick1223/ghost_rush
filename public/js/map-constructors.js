@@ -14,7 +14,7 @@ TownLocation.prototype.contentString = function() {
   return ( '<div id="content">' +
     '<div id="siteNotice">' +
     '</div>' +
-    '<a href = "/town_profile.html?id=2' + this.id + '" <h1 id="firstHeading" class="firstHeading">' + this.name + '</h1></a>' +
+    '<a href = "/town_profile.html?id=' + this.id + '" <h1 id="firstHeading" class="firstHeading">' + this.name + '</h1></a>' +
     '<div id="bodyContent">' +
     '<p>' + this.shortDescription + '</p>' +
     '<img class="markerInfoPhoto" src = "' + this.photoUrl + '"</div>' + '</div>' + '</div>' );
