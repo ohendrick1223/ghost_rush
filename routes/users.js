@@ -1,6 +1,6 @@
 'use strict';
 
-// const bcrypt = require('../bcrypt');
+
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
@@ -19,7 +19,7 @@ router.post('/users', (req, res, next) => {
         location_city,
         location_state
     } = req.body;
-
+ console.log(req.body);
     if (!email || !email.trim()) {
         return next(boom.create(400, 'Email must not be blank'));
     }
@@ -74,10 +74,11 @@ router.post('/users', (req, res, next) => {
                     is_admin: user.is_admin,
                     email: user.email
                 },
+
                 process.env.JWT_SECRET, {
                     expiresIn: '3h'
                 });
-
+                console.log(token);
             res.cookie('token', token, {
                 httpOnly: true,
                 expires: expiry,
