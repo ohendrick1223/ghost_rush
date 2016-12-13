@@ -43,13 +43,13 @@ app.use(express.static(path.join('public')));
 // });
 
 const users = require('./routes/users');
-const towns = require('./routes/towns');
 const auth = require('./routes/auth');
+const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
+app.use(users);
 app.use(auth);
 app.use(towns);
-app.use(users);
 app.use(user_town_lists);
 
 app.use((_req, res) => {
@@ -65,7 +65,7 @@ app.use((_req, res) => {
 //     }
 // });
 
-// eslint-disable-next-line max-params
+
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
     return res
