@@ -1,7 +1,6 @@
 'use strict';
 
 
-//token is undefined!!!!
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
@@ -16,15 +15,15 @@ const authorize = function(req, res, next) {
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
     }
-    console.log(token);
     req.token = decoded;
 
     next();
   });
 };
 
+
+
 router.get('/user_town_lists', authorize, function (req, res, next) {
-  console.log("token", req.token);
 
   knex('user_town_lists')
     .innerJoin('towns', 'towns.id', 'user_town_lists.towns_id')
@@ -35,7 +34,6 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
     .orderBy('towns.name', 'ASC')
     .then((data) => {
       const list = data;
-      console.log(list);
       res.send(list);
     })
     .catch((err) => {
@@ -43,9 +41,11 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
     });
 });
 
+
 router.post('/user_town_lists', (req, res, next) => {
   const towns_id = Number.parseInt(req.body.towns_id);
   const users_id = Number.parseInt(req.body.users_id);
+
 
   if (!Number.isInteger(towns_id)) {
     return next(boom.create(400, 'towns ID must be an integer'));
@@ -66,7 +66,7 @@ router.post('/user_town_lists', (req, res, next) => {
        };
 
       return knex('user_town_lists')
-        .insert(insert_user_town_list);
+        .insert(insert_user_town_list, '*');
     })
 
     .then((data) => {
