@@ -1,13 +1,12 @@
 'use strict';
 
-// const bcrypt = require('../bcrypt');
+
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const router = express.Router();
-
 
 
 //sign up/registraion route
@@ -19,22 +18,27 @@ router.post('/users', (req, res, next) => {
         location_city,
         location_state
     } = req.body;
-
+ console.log(req.body);
     if (!email || !email.trim()) {
         return next(boom.create(400, 'Email must not be blank'));
     }
+
     if (!password || password.length < 8) {
         return next(boom.create(400, 'Password must at least 8 characters long'));
     }
+
     if (!username || !username.trim()) {
         return next(boom.create(400, 'Username must not be blank'));
     }
+
     if (!location_city || !location_city.trim()) {
         return next();
     }
+
     if (!location_state || !location_state.trim()) {
         return next();
     }
+
     knex('users')
         .select(knex.raw('1=1'))
         .where('email', email)
@@ -43,10 +47,12 @@ router.post('/users', (req, res, next) => {
             if (exists) {
                 throw boom.create(400, 'Email already exists');
             }
+
             return bcrypt.hash(password, 12);
         })
 
     .then((hashed_password) => {
+
             const {
                 username,
                 email,
@@ -74,6 +80,7 @@ router.post('/users', (req, res, next) => {
                     is_admin: user.is_admin,
                     email: user.email
                 },
+
                 process.env.JWT_SECRET, {
                     expiresIn: '3h'
                 });
@@ -165,9 +172,5 @@ router.get('/users', (req, res, next) => {
             });
         });
 });
-
-
-//STRETCH: Make a route/add to this delete route, the ability for admin to delete an entire user/get a list of the users.
-
 
 module.exports = router;
