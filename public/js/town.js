@@ -4,40 +4,59 @@
 
 console.log("I'm ready!");
 
-  // const townID = window.QUERY_PARAMETERS.id;
-  // console.log(townID);
-  //
-  // if (!townID) {
-  //   window.location.href = '/index.html';
-  // }
+  const urlParams = new URLSearchParams(window.location.search);
 
+  console.log(urlParams.get('id'));
+
+  const townID = urlParams.get('id');
+  console.log(townID);
+
+  const townAPIroute = '/towns/' + townID;
   //on click, add ajax call in function
 
-  $('#townPhoto').on('click', function() {
-    console.log('clicked');
+  $('document').ready(function() {
+    // console.log('clicked');
 
-      var $xhr = $.ajax ({
-        method: 'GET',
-        url: '/towns/9',
-        dataType: 'json'
-        // console.log(data);
-      });
+    $.getJSON(townAPIroute)
+    .done((town) => {
+      // if(json.status !==200) {
+      console.log(town[0]);
+      //
+      // }
+      var currentTown = new Town(town[0]);
+      currentTown.populateTown();
+    })
+    .fail(function(err) {
+      console.log(err);
+    });
+});
 
-// var data = $xhr.responseText;
-// console.log(data);
-
-      $xhr.done(function(data) {
-        if ($xhr.status !== 200) {
-          return;
-        }
-        // var json = JSON.parse($xhr.responseText);
-        console.log(data);
-      });
-
-      $xhr.fail(function(err) {
-        console.log(err);
-      });
-  });
+  //     var $xhr = $.ajax ({
+  //       method: 'GET',
+  //       url: townAPIroute ,
+  //       dataType: 'json'
+  //       // console.log(data);
+  //     });
+  //
+  //     console.log($xhr);
+  //
+  //
+  //     $xhr.done(function(data) {
+  //       if ($xhr.status !== 200) {
+  //         return;
+  //       }
+  //       var townData = $xhr.responseText;
+  //       console.log(townData);
+  //
+  //       var currentTown = new Town(townData);
+  //       var jsonParsedTown =
+  //       currentTown.populateTown();
+  //     });
+  //
+  //     $xhr.fail(function(err) {
+  //       console.log(err);
+  //     });
+  // });
 
 
 
@@ -65,6 +84,8 @@ console.log("I'm ready!");
    this.townAbandon = obj ["yr_abnd"];
    this.townMaterials = obj ["mineral_found"];
    this.townTour = obj ["tour_avail"];
+   this.townDescThen = obj ["description_then"];
+   this.townDescNow = obj ["description_now"];
 
    Town.prototype.populateTown  = function populateTown () {
      //function to render town
@@ -76,6 +97,8 @@ console.log("I'm ready!");
        $('#townAbandon').text(town.yr_abnd);
        $('#townMaterials').text(town.mineral_found);
        $('#townTour').text(town.tour_avail);
+       $('#townDescThen').text(town.description_now);
+       $('#townDescNow').text(town.description_then);
      };
    }
 
