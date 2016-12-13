@@ -116,15 +116,15 @@ router.get('/users/:id', (req, res, next) => {
 
 
 
-router.use(function(req, res, next) {
-    console.log(req.user.userId);
-
-    if (!req.user.userId.is_admin) {
-        res.sendStatus(401);
-    } else {
-        next();
-    }
-});
+// router.use(function(req, res, next) {
+//     console.log(req.user.userId);
+//
+//     if (!req.user.userId.is_admin) {
+//         res.sendStatus(401);
+//     } else {
+//         next();
+//     }
+// });
 //delete an entire user (TODO:need to add functionality for only admin privileges)
 router.delete('/users/:id',(req, res, next) => {
     const userID = parseInt(req.params.id);
