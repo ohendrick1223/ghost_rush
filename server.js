@@ -67,11 +67,7 @@ const authorize = function(req, res, next) {
 };
 
 
-<<<<<<< HEAD
-//switched order of auth and users heroku deploy Monday night
-app.use(auth);
-=======
->>>>>>> ab347f276bf4c4fcdfc84bba368f39148015aff0
+
 app.use(users);
 app.use(auth);
 app.use(towns);
