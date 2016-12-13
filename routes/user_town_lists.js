@@ -5,8 +5,6 @@
 //
 'use strict';
 
-
-//token is undefined!!!!
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
@@ -21,7 +19,7 @@ const authorize = function(req, res, next) {
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
     }
-    console.log(token);
+
     req.token = decoded;
 
     next();
@@ -48,7 +46,7 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
     });
 });
 
-//reference line 60 for fixing error.
+
 router.post('/user_town_lists', (req, res, next) => {
   console.log(req.body.towns_id);
   const towns_id = Number.parseInt(req.body.towns_id);
@@ -70,7 +68,7 @@ console.log(typeof towns_id);
         throw boom.create(404, 'towns not found');
       }
       console.log(users_id);
-//need to define users_id. Currently not posting.
+
       const insert_user_town_list = {
         visited: req.body.visited,
         towns_id: req.body.towns_id,

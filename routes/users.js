@@ -21,12 +21,7 @@ router.post('/users', (req, res, next) => {
         location_city,
         location_state
     } = req.body;
-    // console.log("i'm getting to the post");
-    console.log(req.body.email);
-    console.log(req.body.username);
-    console.log(req.body.password);
-    console.log(req.body.location_city);
-    console.log(req.body.location_state);
+
     if (!email || !email.trim()) {
         return next(boom.create(400, 'Email must not be blank'));
     }
@@ -50,16 +45,7 @@ router.post('/users', (req, res, next) => {
             if (exists) {
                 throw boom.create(400, 'Email already exists');
             }
-            //Trying to get error handling for username to work, no luck so far, going to come back to this later if time permits.
-            // knex('users')
-            // .select(knex.raw('1=1'))
-            // .where('username', username)
-            // .first()
-            // .then((alreadyExists) => {
-            //   if(alreadyExists) {
-            //     throw boom.create(400, 'Username already exists');
-            //   }
-            // })
+
             return bcrypt.hash(password, 12);
         })
 
@@ -69,6 +55,7 @@ router.post('/users', (req, res, next) => {
                 email,
                 location_city,
                 location_state
+
             } = req.body;
             const insertUser = {
                 username,
@@ -105,6 +92,8 @@ router.post('/users', (req, res, next) => {
             next(err);
         });
 });
+
+
 
 //delete an entire user (need to add functionality for only admin privileges)
 router.delete('/users/:id', (req, res, next) => {
