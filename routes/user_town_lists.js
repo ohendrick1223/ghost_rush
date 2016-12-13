@@ -1,5 +1,7 @@
 'use strict';
 
+
+//token is undefined!!!!
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
@@ -14,7 +16,7 @@ const authorize = function(req, res, next) {
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
     }
-
+    console.log(token);
     req.token = decoded;
 
     next();
@@ -40,7 +42,6 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
       next(err);
     });
 });
-
 
 router.post('/user_town_lists', (req, res, next) => {
   console.log(req.body.towns_id);
