@@ -18,7 +18,7 @@ router.post('/users', (req, res, next) => {
         location_city,
         location_state
     } = req.body;
- console.log(req.body);
+
     if (!email || !email.trim()) {
         return next(boom.create(400, 'Email must not be blank'));
     }
@@ -58,6 +58,7 @@ router.post('/users', (req, res, next) => {
                 email,
                 location_city,
                 location_state
+
             } = req.body;
             const insertUser = {
                 username,
@@ -98,6 +99,7 @@ router.post('/users', (req, res, next) => {
         });
 });
 
+
 //this route gets a single user by id (TODO:only user logged in can access their information)
 router.get('/users/:id', (req, res, next) => {
     const userID = parseInt(req.params.id);
@@ -117,6 +119,7 @@ router.get('/users/:id', (req, res, next) => {
                 status: 'error',
                 data: err
             });
+
         });
 });
 
