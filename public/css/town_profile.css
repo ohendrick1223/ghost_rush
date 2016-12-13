@@ -9,7 +9,6 @@
 }
 
 #townPhoto {
-width: 33%;
 height: 250px;
 /*background-color: blue;*/
 }
@@ -17,17 +16,17 @@ height: 250px;
 img#image {
   display: block;
   margin-top: 30px;
+  width: 300px;
+  height:200px;
 }
 
 #townDetails {
-  width: 33%;
   height: 250px;
   /*background-color: yellow*/
 }
 
 .buttons {
   height: 250px;
-  width: 33%;
   /*background-color: blue*/
 }
 
@@ -36,15 +35,15 @@ img#image {
   margin-top: 50px;
 }
 
-#townDescThen {
+p#townDescThen {
   height: inherit;
-  width: 33%;
+  /*width: 33%;*/
   /*background-color: red*/
 }
 
 #townDescNow {
   height: inherit;
-  width: 33%;
+  /*width: 33%;*/
   /*background-color: green*/
 }
 

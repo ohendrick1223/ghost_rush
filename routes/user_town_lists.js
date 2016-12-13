@@ -21,6 +21,7 @@ const authorize = function(req, res, next) {
   });
 };
 
+
 router.get('/user_town_lists', authorize, function (req, res, next) {
 
   knex('user_town_lists')
@@ -45,14 +46,12 @@ router.post('/user_town_lists', (req, res, next) => {
   const users_id = Number.parseInt(req.body.users_id);
 
 
-
   if (!Number.isInteger(towns_id)) {
     return next(boom.create(400, 'towns ID must be an integer'));
   }
+
   knex('towns')
-    .where({
-      'id': towns_id
-    })
+    .where('id', towns_id)
     .first()
     .then((towns) => {
       if (!towns) {

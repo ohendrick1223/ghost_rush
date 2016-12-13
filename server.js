@@ -12,6 +12,7 @@ app.disable('x-powered-by');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const jwt = require('jsonwebtoken');
 
 switch (app.get('env')) {
   case 'development':
@@ -30,6 +31,8 @@ app.use(cookieParser());
 
 const path = require('path');
 
+
+//admin
 app.use(express.static(path.join('public')));
 
 // CSRF protection
@@ -47,6 +50,24 @@ const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
+const authorize = function(req, res, next) {
+  const token = req.cookies.token;
+
+//   //TODO:If a token exists - decode it and add the contents to req.user
+//
+//   //TODO:If no token exists - do nothing (i.e. next());
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (token) {
+        req.user = decoded;
+        console.log(req.user);
+      }
+      next();
+  });
+};
+
+
+
 app.use(users);
 app.use(auth);
 app.use(towns);
@@ -56,14 +77,6 @@ app.use((_req, res) => {
   res.sendStatus(404);
 });
 
-//TODO: ask teachers about this functionality
-// router.use(function(req, res, next) {
-//     if (!req.user.isAdmin) {
-//         res.sendStatus(401)
-//     } else {
-//         next();
-//     }
-// });
 
 
 app.use((err, _req, res, _next) => {
@@ -73,16 +86,15 @@ app.use((err, _req, res, _next) => {
       .set('Content-Type', 'text/plain')
       .send(err.message);
   }
-  // eslint-disable-next-line no-console
+
   console.error(err.stack);
   res.sendStatus(500);
 });
 
 const port = process.env.PORT || 5000;
-//bug
+
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
-    // eslint-disable-next-line no-console
     console.log('Listening on port', port);
   }
 });
