@@ -58,9 +58,4 @@ console.log("I'm ready!");
      $('#townDescNow').text(this.townDescNow);
    };
 
-//wantToGo Button
-$("wantToGo").on('click', function (){
-  console.log('click);
-})
-
 })();
