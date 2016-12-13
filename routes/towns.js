@@ -10,7 +10,7 @@ const router = express.Router();
 //this route gets a list of all towns
 router.get('/towns', (req, res, next) => {
     knex('towns')
-        .orderBy('name')
+        .orderBy('id')
         .then((data) => {
             const towns = data;
             res.send(towns);
