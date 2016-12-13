@@ -78,7 +78,7 @@ router.post('/users', (req, res, next) => {
                 process.env.JWT_SECRET, {
                     expiresIn: '3h'
                 });
-                console.log(token);
+
             res.cookie('token', token, {
                 httpOnly: true,
                 expires: expiry,

@@ -78,7 +78,6 @@ app.use((_req, res) => {
 });
 
 
-
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
     return res
@@ -91,7 +90,7 @@ app.use((err, _req, res, _next) => {
   res.sendStatus(500);
 });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   if (app.get('env') !== 'test') {

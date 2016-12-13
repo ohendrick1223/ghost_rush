@@ -23,7 +23,7 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/user_town_lists', authorize, function (req, res, next) {
+router.get('/user_town_lists', function (req, res, next) {
   console.log("token", req.token);
 
   knex('user_town_lists')
@@ -44,26 +44,20 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
 });
 
 router.post('/user_town_lists', (req, res, next) => {
-  console.log(req.body.towns_id);
   const towns_id = Number.parseInt(req.body.towns_id);
   const users_id = Number.parseInt(req.body.users_id);
-
-console.log(typeof towns_id);
 
   if (!Number.isInteger(towns_id)) {
     return next(boom.create(400, 'towns ID must be an integer'));
   }
-  console.log(users_id);
+
   knex('towns')
-    .where({
-      'id': towns_id
-    })
+    .where('id', towns_id)
     .first()
     .then((towns) => {
       if (!towns) {
         throw boom.create(404, 'towns not found');
       }
-      console.log(users_id);
 
       const insert_user_town_list = {
         visited: req.body.visited,
@@ -74,9 +68,10 @@ console.log(typeof towns_id);
       return knex('user_town_lists')
         .insert(insert_user_town_list);
     })
+
     .then((data) => {
       const user_town_list = data[0];
-
+      console.log(user_town_list);
       res.send(user_town_list);
     })
     .catch((err) => {
