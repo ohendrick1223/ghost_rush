@@ -7,15 +7,17 @@
     <title>Ghost Rush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/splash.css">
 </head>
 
 <body>
     <header>
         <!-- nav-wrapper -->
         <nav role="navigation" id="nav-header">
-            <div class="nav-wrapper container">
-                <a id="mainLogo" href="#" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+            <div id="navContainer" class="nav-wrapper container">
+                <a id="mainLogo" href="#" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="70px" width="70px" class="logo-small"></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="sign_up.html" id="navLink1">Sign Up</a></li>
                 </ul>
@@ -36,13 +38,11 @@
 
     <main>
         <!-- BannerPhoto -->
-        <div class="section no-pad-bot" id="bannerPhoto">
-            <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Photo Banner Goes Here</h1>
-                <br><br>
-                <div class="row center">
-                    <h5 class="header col s12 light">Here is a short slogan about our site</h5>
+        <div class="section no-pad-bot">
+            <div id="bannerPhoto">
+
+                <div id ="bannerPhotoH5Container" class="row center">
+                    <h5 id ="bannerPhotoH5" class="header col s12 light center-align">Your Guide to Colorado's Ghost Towns</h5>
                 </div>
                 <br><br>
 
@@ -53,10 +53,10 @@
         <div class="section no-pad-bot" id="splashInfoDiv">
             <div class="container">
                 <br><br>
-                <h1 class="header center orange-text">Ghost Rush</h1>
-                <br><br>
-                <div class="row center">
-                    <h5 class="header col s12 light">Here is a longer description of our site</h5>
+                <h1 id = "splashInfoHeader" class="header center">Start Adventuring :</h1>
+                <br>
+                <div class="row center ">
+                    <h5 id = "splashInfoPara" class="header col s12 light">Ghost Rush provides an interactive web platform <br>to fulfill all your Ghost Town exploring needs<br> in the Colorado area.</h5>
                 </div>
                 <br><br>
 
@@ -67,8 +67,19 @@
         <div class="section no-pad-bot" id="splashMapDiv">
             <div class="container">
                 <div class="row center">
-                  <div class="col s6"><h5 id="splashMapHeader">Explore Colorado's Historic Ghost Towns :</h5><br><br><p id="splashMapPara">This div is where a user experiance discription goes</p></div>
-                  <div class="col s6">This div is where a example map goes</div>
+                  <div class="col s6">
+                    <br>
+                    <h5 id="splashMapHeader">What you get :</h5><br>
+                  <ul id="splashMapList">
+                    <li> - Access an interactive map.</li>
+                    <br>
+                    <li> - View town profiles with historical data.</li>
+                    <br>
+                    <li> - Personalize your profile with towns<br>you have been to or want to visit.</li>
+                  </ul></div>
+                  <div class="col s6">
+                    <img src="images/map_screenshot.png" alt="Map View Example" height="300px" width="auto">
+                  </div>
                   </div>
                 </div>
             <!-- end splashMap -->
@@ -77,8 +88,10 @@
         <div class="section no-pad-bot" id="splashExplorationDiv">
             <div class="container">
                 <br><br>
-                <h1 id="splashSignUpLogo" class="header center orange-text">Icon/Logo here</h1>
+                <div class="row center">
+                  <img id="splashSignUpLogo" class="center" src="images/ghost_solo_logo.png" alt="Ghost Logo" height="100px" width="auto">
                 <br><br>
+              </div>
                 <div class="row center">
                     <a id ="splashExplorationButton" class="waves-effect waves-light btn" href="sign_up.html">Begin Your Exploration</a>
                 </div>
@@ -94,11 +107,11 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <div class="left left-footer-link">
+                    <div id ="footerContact" class="left left-footer-link">
                         <a href="#">Contact</a>
                     </div>
                     <!-- end left footer link -->
-                    <div class="right right-footer-link">
+                    <div id= "footerHelp" class="right right-footer-link">
                         <a href="#">Help</a>
                     </div>
                     <!-- end right footer link -->

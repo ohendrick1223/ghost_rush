@@ -31,6 +31,8 @@ app.use(cookieParser());
 
 const path = require('path');
 
+
+//admin
 app.use(express.static(path.join('public')));
 
 // CSRF protection
@@ -39,21 +41,21 @@ app.use(express.static(path.join('public')));
 //   if (/json/.test(req.get('Accept'))) {
 //     return next();
 //   }
-// 
+//
 //   res.sendStatus(406);
 // });
 
-const auth = require('./routes/auth');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
 const authorize = function(req, res, next) {
   const token = req.cookies.token;
 
-  //TODO:If a token exists - decode it and add the contents to req.user
-
-  //TODO:If no token exists - do nothing (i.e. next());
+//   //TODO:If a token exists - decode it and add the contents to req.user
+//
+//   //TODO:If no token exists - do nothing (i.e. next());
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (token) {
@@ -64,8 +66,10 @@ const authorize = function(req, res, next) {
   });
 };
 
-app.use(auth);
+
+
 app.use(users);
+app.use(auth);
 app.use(towns);
 app.use(user_town_lists);
 
@@ -73,16 +77,8 @@ app.use((_req, res) => {
   res.sendStatus(404);
 });
 
-//TODO: ask teachers about this functionality
-// router.use(function(req, res, next) {
-//     if (!req.user.isAdmin) {
-//         res.sendStatus(401)
-//     } else {
-//         next();
-//     }
-// });
 
-// eslint-disable-next-line max-params
+
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
     return res
@@ -90,16 +86,15 @@ app.use((err, _req, res, _next) => {
       .set('Content-Type', 'text/plain')
       .send(err.message);
   }
-  // eslint-disable-next-line no-console
+
   console.error(err.stack);
   res.sendStatus(500);
 });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
-    // eslint-disable-next-line no-console
     console.log('Listening on port', port);
   }
 });
