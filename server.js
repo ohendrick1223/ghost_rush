@@ -38,7 +38,7 @@ app.use(express.static(path.join('public')));
 //   if (/json/.test(req.get('Accept'))) {
 //     return next();
 //   }
-// 
+//
 //   res.sendStatus(406);
 // });
 
@@ -47,9 +47,9 @@ const towns = require('./routes/towns');
 const auth = require('./routes/auth');
 const user_town_lists = require('./routes/user_town_lists');
 
-app.use(users);
-app.use(towns);
 app.use(auth);
+app.use(towns);
+app.use(users);
 app.use(user_town_lists);
 
 app.use((_req, res) => {
@@ -78,8 +78,8 @@ app.use((err, _req, res, _next) => {
   res.sendStatus(500);
 });
 
-const port = process.env.PORT || 8000;
-
+const port = process.env.PORT || 5000;
+//bug
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
     // eslint-disable-next-line no-console
