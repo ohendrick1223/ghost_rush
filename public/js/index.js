@@ -1,10 +1,10 @@
-'use strict';
-
-$(document).ready(function() {
-
-  $(".button-collapse").sideNav();
-
-
-
-
-});
+// 'use strict';
+//
+// $(document).ready(function() {
+//
+//   $(".button-collapse").sideNav();
+//
+//
+//
+//
+// });
