@@ -1,0 +1,79 @@
+#navContainer{
+  width: 100%;
+}
+
+#bannerPhoto{
+  background-image: url('../images/Ghost_Rush_Green_Text.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+  color: black;
+  opacity: 0.9;
+}
+
+#bannerPhotoH5Container{
+  width: 550px;
+}
+
+#bannerPhotoH5{
+  margin-top: 19rem;
+  padding: 30px;
+  font-weight: 400;
+  background-color: rgba(228, 225, 225, 0.6);
+}
+
+#splashInfoHeader{
+  color: #373f27;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#splashInfoPara{
+  color: #636b46;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#splashMapHeader{
+  color: #373f27;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2em;
+}
+
+#splashMapDiv{
+  background-color: #e9e7da;
+  padding-bottom: 15px;
+}
+
+#splashSignUpLogo{
+  padding-right: 15px;
+}
+
+#splashExplorationButton{
+  background-color:#373f27 ;
+}
+
+li {
+  color: #636b46;
+  font-size: 1.em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+a{
+  color: #cda34f;
+}
+
+nav, .nav-wrapper {
+  min-height: 75px;
+  line-height: 75px;
+  background-color: #e9e7da;
+}
+
+nav ul a {
+  color: #cda34f;
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+footer.page-footer {
+  background-color: #e9e7da;
+}
