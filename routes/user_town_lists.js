@@ -1,8 +1,3 @@
-// //TODO: 1. Get route for getting a list of added towns on profile page
-// //2. Post route for adding a ghost town to the profile page
-// //3. Patch route for changing ghost town object/card from 'want to go' to 'been there' & vice versa.
-// //4. Delete route for removing a town card/object from the list of 'want to go' & 'been there'
-//
 'use strict';
 
 
@@ -48,7 +43,6 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
     });
 });
 
-//reference line 60 for fixing error.
 router.post('/user_town_lists', (req, res, next) => {
   console.log(req.body.towns_id);
   const towns_id = Number.parseInt(req.body.towns_id);
@@ -70,7 +64,7 @@ console.log(typeof towns_id);
         throw boom.create(404, 'towns not found');
       }
       console.log(users_id);
-//need to define users_id. Currently not posting.
+
       const insert_user_town_list = {
         visited: req.body.visited,
         towns_id: req.body.towns_id,

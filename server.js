@@ -12,6 +12,7 @@ app.disable('x-powered-by');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const jwt = require('jsonwebtoken');
 
 switch (app.get('env')) {
   case 'development':
@@ -42,14 +43,30 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
+const auth = require('./routes/auth');
 const users = require('./routes/users');
 const towns = require('./routes/towns');
-const auth = require('./routes/auth');
 const user_town_lists = require('./routes/user_town_lists');
 
+const authorize = function(req, res, next) {
+  const token = req.cookies.token;
+
+  //TODO:If a token exists - decode it and add the contents to req.user
+
+  //TODO:If no token exists - do nothing (i.e. next());
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (token) {
+        req.user = decoded;
+        console.log(req.user);
+      }
+      next();
+  });
+};
+
+app.use(auth);
 app.use(users);
 app.use(towns);
-app.use(auth);
 app.use(user_town_lists);
 
 app.use((_req, res) => {

@@ -7,24 +7,11 @@ const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const router = express.Router();
 
-//check for token route!
-router.get('/auth', (req, res) => {
-    const token = req.cookies.token;
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-        if (err) {
-            return res.send(false);
-        }
-
-        res.send(true);
-    });
-});
 
 //login route!
 router.post('/auth', (req, res, next) => {
     console.log("I'm getting to the post");
     const {
-        username,
         email,
         password
     } = req.body;
@@ -38,14 +25,9 @@ router.post('/auth', (req, res, next) => {
         return next(boom.create(400, 'Password must not be blank'));
     }
     console.log("getting past password");
-    if (!username) {
-        return next(boom.create(400, 'Username must not be blank'));
-    }
-
     let user;
 
     knex('users')
-        // .where('username', username)
         .where('email', email)
         .first()
         .then((data) => {
@@ -63,7 +45,9 @@ router.post('/auth', (req, res, next) => {
 
                 const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3); // 3 hours
                 const token = jwt.sign({
-                    userId: user.id
+                    userId: user.id,
+                    is_admin: user.is_admin,
+                    email: user.email
                 }, process.env.JWT_SECRET, {
                     expiresIn: '3h'
                 }); //Tested on postman, this works for now. May need to make test to make sure.
@@ -73,7 +57,7 @@ router.post('/auth', (req, res, next) => {
                     expires: expiry,
                     secure: router.get('env') === 'production'
                 });
-                console.log(user);
+                console.log(res.cookie);
                 res.send(user);
             } else {
                 next(boom.create(400, 'Bad email or password'));
