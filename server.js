@@ -31,6 +31,8 @@ app.use(cookieParser());
 
 const path = require('path');
 
+
+//admin
 app.use(express.static(path.join('public')));
 
 // CSRF protection
@@ -65,6 +67,7 @@ const authorize = function(req, res, next) {
 };
 
 
+
 app.use(users);
 app.use(auth);
 app.use(towns);
@@ -74,16 +77,8 @@ app.use((_req, res) => {
   res.sendStatus(404);
 });
 
-//TODO: ask teachers about this functionality
-// router.use(function(req, res, next) {
-//     if (!req.user.isAdmin) {
-//         res.sendStatus(401)
-//     } else {
-//         next();
-//     }
-// });
 
-// eslint-disable-next-line max-params
+
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
     return res
@@ -91,16 +86,15 @@ app.use((err, _req, res, _next) => {
       .set('Content-Type', 'text/plain')
       .send(err.message);
   }
-  // eslint-disable-next-line no-console
+
   console.error(err.stack);
   res.sendStatus(500);
 });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
-    // eslint-disable-next-line no-console
     console.log('Listening on port', port);
   }
 });

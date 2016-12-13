@@ -1,6 +1,6 @@
 'use strict';
 
-// const bcrypt = require('../bcrypt');
+
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
@@ -58,6 +58,7 @@ router.post('/users', (req, res, next) => {
                 email,
                 location_city,
                 location_state
+
             } = req.body;
             const insertUser = {
                 username,
@@ -80,6 +81,7 @@ router.post('/users', (req, res, next) => {
                     is_admin: user.is_admin,
                     email: user.email
                 },
+
                 process.env.JWT_SECRET, {
                     expiresIn: '3h'
                 });
@@ -96,6 +98,7 @@ router.post('/users', (req, res, next) => {
             next(err);
         });
 });
+
 
 //this route gets a single user by id (TODO:only user logged in can access their information)
 router.get('/users/:id', (req, res, next) => {
@@ -116,6 +119,7 @@ router.get('/users/:id', (req, res, next) => {
                 status: 'error',
                 data: err
             });
+
         });
 });
 
