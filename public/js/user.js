@@ -25,14 +25,14 @@ $('document').ready(function() {
             console.log(err);
         });
 
-    //function to populate card
     UserTown.prototype.populateCard = function populateCard() {
-        $('#image').attr({
-            src: this.townPhoto,
-            alt: this.townName
-        });
-        $('#townName').text(this.townName);
-        $('#townShortDesc').text(this.townShortDesc);
+        var deleteLink = "<div class='divider'></div>" + "</div>" + "<div class='card-content'>" + "<a href='#' id='deleteTown'>Delete from List</a></div></div></div></div>";
+
+        $('.townCard').html("<div class='col s3'>" + "<div class='card small'>" + "<div class='card-image'>" + "<img src= '" + this.townPhoto + "' alt= '" + this.townName + "' class='responsive-img'>" + "<span class='card-title center-align'>" + this.townName + "</span>" + "</div>" + "<div class='card-content center-align'>" + "<a href=map.html>Visit Map Page</a>" + "<div class='section'>" + deleteLink
+    );
+
+        // $('#townName').text(this.townName);
+        // $('#townShortDesc').text(this.townShortDesc);
     };
 
 });

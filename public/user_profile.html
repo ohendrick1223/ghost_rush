@@ -16,8 +16,7 @@
             <div class="nav-wrapper container">
                 <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="index.html" class="logOut">Log out</a></li> <!-- Some j.s. manipulation for delete cookie route -->
-
+                    <li><a href="index.html" class="logOut">Log out</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="map.html" id="navLink2Profile">Map</a></li>
@@ -50,25 +49,8 @@
               <div class="col s1 border z-depth-2 center-align">
               <p id="wantGalleryTitle">Want to Go</p>
               </div>
-              <div class="row" id="wantGhostTownDiv">
-                <!-- dynamically load ghost town name/photo here, as well as card container below -->
-                <div class="col s3">
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg" class="responsive-img" id="wantGhostTownPic">
-                      <span class="card-title center-align" id="wantGhostTownName">Name of Ghost town</span>
-                    </div>
-                    <div class="card-content center-align">
-                      <a href="#">Visit Map Page</a><!-- reference route for unique ghost town page -->
-                      <div class="section">
-                      <div class="divider"></div>
-                    </div>
-                    <div class="card-content">
-                      <a href="#" id="wantDeleteTown">Delete from List</a><!-- reference delete route for  deleting a ghost-town -->
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="row townCard">
+                <!-- dynamically load ghost town name/photo here, container from users.js populateCard function -->
             </div>
         </div>
 
