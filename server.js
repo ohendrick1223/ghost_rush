@@ -49,7 +49,7 @@ const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 
 
-
+//auth setup
 const authorize = function(req, res, next) {
     const token = req.cookies.token;
 
