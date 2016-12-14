@@ -21,9 +21,8 @@ const authorize = function( req, res, next ) {
   } );
 };
 
-
-
 //populate cards
+
 router.get('/user_town_lists', authorize, function (req, res, next) {
 
   knex( 'user_town_lists' )
@@ -98,11 +97,9 @@ router.get( '/user_town_lists/false', authorize, function( req, res, next ) {
 //get user_town_lists
 //user_id and town_id if there's the match we need to send back object if not
 
-
 router.post( '/user_town_lists', ( req, res, next ) => {
   const towns_id = Number.parseInt( req.body.towns_id );
   const users_id = Number.parseInt( req.body.users_id );
-
 
   if ( !Number.isInteger( towns_id ) ) {
     return next( boom.create( 400, 'towns ID must be an integer' ) );
