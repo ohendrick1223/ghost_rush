@@ -48,33 +48,34 @@ const users = require('./routes/users');
 const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
+const admin_page = require('./routes/admin_page');
 
 
 //auth setup
-const authorize = function(req, res, next) {
-    const token = req.cookies.token;
+// const authorize = function(req, res, next) {
+//     const token = req.cookies.token;
+//     console.log(token);
+//     if (token) {
+//         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//             if (err) {
+//                 res.redirect('../map.html');
+//             }
+//             req.user = decoded;
+//             console.log(req.user);
+//             next();
+//         });
+//     } else {
+//         next();
+//     }
+// };
 
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-            if (err) {
-                res.redirect('../map.html');
-            }
-            req.user = decoded;
-            console.log(req.user);
-            next();
-        });
-    } else {
-        next();
-    }
-};
-
-app.use('/admin_page.html', authorize, function(req, res, next) {
-    if (!req.user) {
-        res.redirect('../map.html');
-    } else {
-        next();
-    }
-});
+// app.get('/admin_page', authorize, function(req, res, next) {
+//     if (!req.user) {
+//         res.redirect('../map.html');
+//     } else {
+//         next();
+//     }
+// });
 
 app.use(express.static('./public'));
 
@@ -83,6 +84,7 @@ app.use(users);
 app.use(auth);
 app.use(towns);
 app.use(user_town_lists);
+app.use('/admin_page', admin_page);
 
 app.use((_req, res) => {
     res.sendStatus(404);
