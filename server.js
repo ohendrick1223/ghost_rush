@@ -30,8 +30,9 @@ switch (app.get('env')) {
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+const path = require('path');
 
-app.use(express.static('public'));
+app.use(express.static(path.join('public')));
 
 // CSRF protection
 // Look into this
@@ -56,7 +57,7 @@ const authorize = function(req, res, next) {
     if (token) {
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
-                res.redirect('../index.html');
+                res.redirect('../map.html');
             }
             req.user = decoded;
             console.log(req.user);

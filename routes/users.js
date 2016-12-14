@@ -31,13 +31,14 @@ router.post('/users', (req, res, next) => {
         return next(boom.create(400, 'Username must not be blank'));
     }
 
-    if (!location_city || !location_city.trim()) {
-        return next();
-    }
-
-    if (!location_state || !location_state.trim()) {
-        return next();
-    }
+//causing  problems on signup
+    // if (!location_city || !location_city.trim()) {
+    //     return next();
+    // }
+    //
+    // if (!location_state || !location_state.trim()) {
+    //     return next();
+    // }
 
     knex('users')
         .select(knex.raw('1=1'))
@@ -48,7 +49,7 @@ router.post('/users', (req, res, next) => {
                 throw boom.create(400, 'Email already exists');
             }
 
-            return bcrypt.hash(password, 12);
+            return bcrypt.hash(password, 8);
         })
 
     .then((hashed_password) => {
