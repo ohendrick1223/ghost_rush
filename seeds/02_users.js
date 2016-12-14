@@ -16,7 +16,6 @@ exports.seed = function(knex, Promise) {
             location_city: 'Boulder',
             location_state: 'Colorado'
           }),
-
       ]);
     })
     .then(() => {

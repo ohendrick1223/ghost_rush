@@ -9,22 +9,25 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/map.css">
+  <!-- <script src="js/map.js"></script> -->
 </head>
 
 <body>
   <header>
     <nav role="navigation" id="nav-header">
         <div class="nav-wrapper container">
-          <a id="mainLogo" href="index.html" class="brand-logo"><img src="../images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+          <a id="mainLogo" href="map.html" class="brand-logo"><img src="../images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="user_profile.html" id="headerProfile">My Profile</a></li>
+            <li><a href="index.html" class="logOut">Log Out</a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
             <!--<li><a href="#" id="navLink2">Navbar Link</a></li>-->
           </ul>
 
           <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-            <li><a href="#">Navbar Link</a></li>
+            <li><a href="user_profile.html">My Profile</a></li>
+            <li><a href="index.html" class="logOut">Log out</a></li>
           </ul>
           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -44,15 +47,13 @@
 
 
         <div id="map">
+          <script src="js/map.js"></script>
         </div>
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">
         </script>
       </div>
     </div><!--container-->
-
-
-    <script src="js/map.js"></script>
   </main>
   <footer class="page-footer">
       <div class="container">
@@ -65,11 +66,6 @@
             <div id="footerHelp" class="right right-footer-link">
               <a href="#">Help</a>
             </div><!-- end right footer link -->
-
-            <div id="footerLogOut" class="right right-footer-link">
-              <a href="#">Log Out</a>
-            </div><!--end right footer log out link-->
-
           </div>
         </div><!--row-->
       </div><!--container-->
@@ -89,5 +85,5 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-
+<script type="text/javascript" src="js/logout.js"></script>
 </html>
