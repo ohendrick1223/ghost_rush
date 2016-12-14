@@ -41,6 +41,59 @@ router.get( '/user_town_lists', authorize, function( req, res, next ) {
     } );
 } );
 
+router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
+
+  knex( 'user_town_lists' )
+    .where( {
+      'user_id': req.body.user_id,
+      'town_id': req.body.town_id
+    } )
+    .orderBy( 'user_id', 'ASC' )
+    .then( ( data ) => {
+      const list = data;
+      res.send( list );
+    } )
+    .catch( ( err ) => {
+      next( err );
+    } );
+} );
+
+router.get( '/user_town_lists/true', authorize, function( req, res, next ) {
+
+  knex( 'user_town_lists' )
+    .where( {
+      'user_id': req.body.user_id,
+      'town_id': req.body.town_id,
+      'visited': true
+    } )
+    .orderBy( 'user_id', 'ASC' )
+    .then( ( data ) => {
+      const list = data;
+      res.send( list );
+    } )
+    .catch( ( err ) => {
+      next( err );
+    } );
+} );
+
+router.get( '/user_town_lists/false', authorize, function( req, res, next ) {
+
+  knex( 'user_town_lists' )
+    .where( {
+      'user_id': req.body.user_id,
+      'town_id': req.body.town_id,
+      'visited': false
+    } )
+    .orderBy( 'user_id', 'ASC' )
+    .then( ( data ) => {
+      const list = data;
+      res.send( list );
+    } )
+    .catch( ( err ) => {
+      next( err );
+    } );
+} );
+
 
 router.post( '/user_town_lists', ( req, res, next ) => {
   const towns_id = Number.parseInt( req.body.towns_id );
