@@ -22,14 +22,14 @@ const authorize = function(req, res, next) {
 };
 
 
-
+//populate cards
 router.get('/user_town_lists', authorize, function (req, res, next) {
 
   knex('user_town_lists')
     .innerJoin('towns', 'towns.id', 'user_town_lists.towns_id')
     .where ({
       'id': req.body.user_id,
-      'user_town_lists.user_id': req.token.user_id
+      'user_town_lists.user_id': req.token.user_id,
     })
     .orderBy('towns.name', 'ASC')
     .then((data) => {
@@ -40,6 +40,9 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
       next(err);
     });
 });
+
+//get user_town_lists
+//user_id and town_id if there's the match we need to send back object if not
 
 
 router.post('/user_town_lists', (req, res, next) => {
