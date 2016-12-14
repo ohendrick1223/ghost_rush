@@ -30,22 +30,6 @@ switch (app.get('env')) {
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(function(res, req, next) {
-    if (req.token.userId === 'thisispassword') {
-        knex('users')
-            .where({
-                id: req.token.userId
-            })
-            .first()
-            .then(function(result) {
-                req.user = result;
-                next();
-            });
-    } else {
-        next();
-    }
-});
-
 
 app.use(express.static('public'));
 
