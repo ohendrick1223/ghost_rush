@@ -38,71 +38,65 @@
         <div class="container first_row">
             <div class="row">
 
-                <!--First Row-->
-                <div class="container first_row">
+                <!-- Town Photo -->
+                <div class="col l4 center" id="townPhoto">
+                    <img id="image" src="http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg">
+                </div>
+
+                <!-- Town Details -->
+                <div class="col l4" id="townDetails">
+
+                    <h4 id="townName"></h4>
+
+                    <h6>Location: <span id = "townLocation">Latitude, Longitude</span></h6>
+
+                    <h6>Cemetery: <span id = "townCemetery">Yes</span></h6>
+
+                    <h6>Year Established: <span id = "townEst">1880</span></h6>
+
+                    <h6>Year Abandoned: <span id = "townAbandon">1900</span></h6>
+
+                    <h6>Materials Found: <span id = "townMaterials">Gold, Silver</span></h6>
+
+                    <h6>Tour Available: <span id = "townTour">Yes</span></h6>
+                </div>
+
+                <!-- Want To Go/Been There Buttons -->
+                <div class="col l4 buttons" id="buttonsContainer">
                     <div class="row">
-
-                        <!-- Town Photo -->
-                        <div class="col l6 center" id="townPhoto">
-                            <img id="image" src="http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg">
-                        </div>
-
-                        <!-- Town Details -->
-                        <div class="col l3" id="townDetails">
-
-                            <h4 id="townName">Central City</h4>
-
-                            <h6>Location: <span id = "townLocation">Latitude, Longitude</span></h6>
-
-                            <h6>Cemetery: <span id = "townCemetery">Yes</span></h6>
-
-                            <h6>Year Established: <span id = "townEst">1880</span></h6>
-
-                            <h6>Year Abandoned: <span id = "townAbandon">1900</span></h6>
-
-                            <h6>Materials Found: <span id = "townMaterials">Gold, Silver</span></h6>
-
-                            <h6>Tour Available: <span id = "townTour">Yes</span></h6>
-
-                            <!-- Want To Go/Been There Buttons -->
-                            <div class="col l3 buttons">
-                                <div class="row">
-                                    <a href="#" id="wantToGo" class="waves-effect waves-light btn">Want to Go</a>
-                                </div>
-
-                                <div class="row">
-                                    <a href="#" id="beenThere" class="waves-effect waves-light btn">Been There</a>
-                                </div>
-                            </div>
-
-                        </div>
+                        <a href="#" id="wantToGo" class="waves-effect waves-light btn">Want to Go</a>
                     </div>
-                    <!--First Row Container-->
 
-                    <!--Second Row-->
-                    <div class="container">
-                        <div class="row second_row">
-
-                            <div class="col l4">
-                                <h5>Back Then...</h5>
-                                <p id="townDescThen"></p>
-                            </div>
-
-                            <div class="col l4">
-                                <h5>And Now...</h5>
-                                <p id="townDescNow"></p>
-                            </div>
-
-                            <!--Map-->
-                            <div class="col l4" id="map">
-                                <script src="js/town.js"></script>
-
-                                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">
-                                </script>
-                            </div>
-                        </div>
+                    <div class="row">
+                        <a href="#" id="beenThere" class="waves-effect waves-light btn">Been There</a>
                     </div>
-                    <!--2nd Row Container-->
+
+                </div>
+            </div>
+        </div>
+        <!--First Row Container-->
+
+        <!--Second Row-->
+        <div class="container">
+            <div class="row second_row">
+
+                <div class="col l4">
+                    <h5>Back Then...</h5>
+                    <p id="townDescThen"></p>
+                </div>
+
+                <div class="col l4">
+                    <h5>And Now...</h5>
+                    <p id="townDescNow"></p>
+                </div>
+
+                <!--Map-->
+                <div class="col l4" id="map">
+
+                </div>
+            </div>
+        </div>
+        <!--2nd Row Container-->
 
     </main>
     <footer class="page-footer">
@@ -134,6 +128,9 @@
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/town.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 

@@ -31,7 +31,8 @@ img#image {
 }
 
 .btn {
-  margin-left: 25%;
+  margin-left: auto;
+  /*margin-right: 10px;*/
   margin-top: 50px;
 }
 
@@ -54,7 +55,8 @@ p#townDescThen {
 /*}*/
 
 #map {
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
+  width: 320px;
+  height: 200px;
+  background-color: #CCC;
+  margin: auto;
 }
