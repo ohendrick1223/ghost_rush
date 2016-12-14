@@ -59,7 +59,7 @@ const authorize = function(req, res, next) {
                 res.redirect('../index.html');
             }
             req.user = decoded;
-            console.log(req.user);
+            console.log("req.user:", req.user);
             next();
         });
     } else {

@@ -56,6 +56,7 @@ function buttonsContainerClicked() {
       if ( true ) { //TODO need sample response for conditional!!!!
         // townEntry.toggleVisited
         var townEntry = new UserTownEntry;
+        // TODO validate that toggle matches the button
         townEntry.toggleVisited();
         // patch to database
         var patchRoute = '/user_town_lists/' + townEntry.id
