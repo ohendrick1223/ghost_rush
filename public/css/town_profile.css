@@ -10,7 +10,6 @@
 
 #townPhoto {
 height: 250px;
-/*background-color: blue;*/
 }
 
 img#image {
@@ -22,41 +21,27 @@ img#image {
 
 #townDetails {
   height: 250px;
-  /*background-color: yellow*/
 }
 
 .buttons {
   height: 250px;
-  /*background-color: blue*/
 }
 
 .btn {
   margin-left: auto;
-  /*margin-right: 10px;*/
   margin-top: 50px;
 }
 
 p#townDescThen {
   height: inherit;
-  /*width: 33%;*/
-  /*background-color: red*/
 }
 
 #townDescNow {
   height: inherit;
-  /*width: 33%;*/
-  /*background-color: green*/
 }
-
-/*#townMap {*/
-  /*height: inherit;*/
-  /*width: 33%;*/
-  /*background-color: red*/
-/*}*/
 
 #map {
   width: 320px;
   height: 200px;
-  /*background-color: #CCC;*/
   margin: auto;
 }
