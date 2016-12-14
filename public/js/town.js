@@ -9,7 +9,7 @@ function init() {
   };
 
   var map = new google.maps.Map( document.getElementById( 'map' ), {
-    zoom: 7,
+    zoom: 6,
     center: tarryall
   } );
 
