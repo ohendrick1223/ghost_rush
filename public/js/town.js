@@ -1,6 +1,7 @@
 'use strict';
 
 // // initialize map object constructor and database call
+//center and create map
 function init() {
 
   var tarryall = {
@@ -14,46 +15,48 @@ function init() {
   } );
 
 console.log( 'loaded map init!');
+
 //map markers
 $(document).ready(function() {
 console.log("I'm ready!");
 
-// function TownLocation(townObj) {
-//   const obj = townObj;
-//   this.id = obj["id"];
-//   this.name = obj["name"];
-//   this.lat = parseFloat(obj["latitude"]);
-//   this.lng = parseFloat(obj["longitude"]);
-// }
-//
-// TownLocation.prototype.position = function() {
-//   var newLat = {
-//       lat: this.lat
-//   };
-//   var newLng = {
-//       lng: this.lng
-//   };
-//   return Object.assign({}, newLat, newLng);
-// };
-//
-// $.getJSON('/towns')
-//     .done((towns) => {
-//         var locations = towns;
-//         locations.map(renderMarkerWithWindow);
-//     });
-//
-// //render markers and info windows
-// function renderMarkerWithWindow(obj) {
-//     var newTown = new TownLocation(obj);
-//     var content = newTown.contentString();
-//     var position = newTown.position();
-//     var name = newTown.name;
-//     var marker = new google.maps.Marker({
-//         position: position,
-//         map: map,
-//         title: name
-//     });
-// }
+function TownLocation(townObj) {
+  const obj = townObj;
+  this.id = obj["id"];
+  this.name = obj["name"];
+  this.lat = parseFloat(obj["latitude"]);
+  this.lng = parseFloat(obj["longitude"]);
+}
+
+TownLocation.prototype.position = function() {
+  var newLat = {
+      lat: this.lat
+  };
+  var newLng = {
+      lng: this.lng
+  };
+  return Object.assign({}, newLat, newLng);
+};
+
+//TODO: Map is showing but not specific location with marker
+$.getJSON('/towns')
+    .done((town) => {
+        var location = town;
+        // locations.map(renderMarkerWithWindow);
+    });
+
+//render markers and info windows
+function renderMarker(obj) {
+    var newTown = new TownLocation(obj);
+    // var content = newTown.contentString();
+    var position = newTown.position();
+    // var name = newTown.name;
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        // title: name
+    });
+}
 
 //get town by id
   const urlParams = new URLSearchParams(window.location.search);

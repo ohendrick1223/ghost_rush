@@ -47,14 +47,14 @@ p#townDescThen {
   /*background-color: green*/
 }
 
-#townMap {
-  height: inherit;
+/*#townMap {*/
+  /*height: inherit;*/
   /*width: 33%;*/
   /*background-color: red*/
-}
+/*}*/
 
-#profileMap {
-  width: 300px;
-  height: 300px;
+#map {
+  width: 100px;
+  height: 100px;
   background-color: yellow;
 }
