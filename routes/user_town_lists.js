@@ -34,8 +34,6 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
     })
     .orderBy('towns.name', 'ASC')
     .then((data) => {
-    .orderBy( 'towns.name', 'ASC' )
-    .then( ( data ) => {
       const list = data;
       res.send( list );
     } )

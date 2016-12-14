@@ -42,7 +42,7 @@
       data: JSON.stringify({ username, email, password, city, state }),
       dataType: 'json',
       type: 'POST',
-      url: '/auth'
+      url: '/users'
     };
 
     $.ajax(options)
