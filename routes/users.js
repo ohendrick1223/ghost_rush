@@ -124,18 +124,7 @@ router.get('/users/:id', (req, res, next) => {
 });
 
 
-
-
-// router.use(function(req, res, next) {
-//     console.log(req.user.userId);
-//
-//     if (!req.user.userId.is_admin) {
-//         res.sendStatus(401);
-//     } else {
-//         next();
-//     }
-// });
-//delete an entire user (TODO:need to add functionality for only admin privileges)
+//admin
 router.delete('/users/:id',(req, res, next) => {
     const userID = parseInt(req.params.id);
     knex('users')
@@ -158,7 +147,7 @@ router.delete('/users/:id',(req, res, next) => {
         });
 });
 
-//this route gets all users (TODO:create admin privileges, once we have admin page. Can admin access a page with list of users and/or can admin access profile pages of users(may be a stretch))
+//this route gets all users (TODO:can admin access profile pages of users(may be a stretch))
 router.get('/users', (req, res, next) => {
     knex('users')
         .select('*')

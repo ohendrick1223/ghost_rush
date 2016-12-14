@@ -21,15 +21,14 @@ const authorize = function(req, res, next) {
   });
 };
 
-
-
+//visited true
 router.get('/user_town_lists', authorize, function (req, res, next) {
 
   knex('user_town_lists')
     .innerJoin('towns', 'towns.id', 'user_town_lists.towns_id')
     .where ({
       'id': req.body.user_id,
-      'user_town_lists.user_id': req.token.user_id
+      'user_town_lists.user_id': req.token.user_id,
     })
     .orderBy('towns.name', 'ASC')
     .then((data) => {
@@ -40,7 +39,6 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
       next(err);
     });
 });
-
 
 router.post('/user_town_lists', (req, res, next) => {
   const towns_id = Number.parseInt(req.body.towns_id);
