@@ -1,19 +1,19 @@
 'use strict';
 
 // // initialize map object constructor and database call
-// function init() {
-//
-//   var tarryall = {
-//     lat: 39.119080,
-//     lng: -105.473900
-//   };
-//
-//   var map = new google.maps.Map( document.getElementById( 'map' ), {
-//     zoom: 7,
-//     center: tarryall
-//   } );
-//
-// console.log( 'loaded map init!');
+function init() {
+
+  var tarryall = {
+    lat: 39.119080,
+    lng: -105.473900
+  };
+
+  var map = new google.maps.Map( document.getElementById( 'map' ), {
+    zoom: 7,
+    center: tarryall
+  } );
+
+console.log( 'loaded map init!');
 //map markers
 $(document).ready(function() {
 console.log("I'm ready!");
@@ -83,8 +83,7 @@ console.log("I'm ready!");
      this.id = obj[ "id" ];
      this.townPhoto = obj[ "photo_url" ];
      this.townName = obj[ "name" ];
-     this.latlon = (parseFloat( obj[ "latitude" ] ) + ", " + parseFloat( obj[ "longitude" ] )).toString()
-
+     this.latlon = (parseFloat( obj[ "latitude" ] ) + ", " + parseFloat( obj[ "longitude" ] )).toString();
      this.townCemetery = obj [ "cemetery" ];
      this.townEst = obj ["yr_est"];
      this.townAbandon = obj ["yr_abnd"];
@@ -92,7 +91,7 @@ console.log("I'm ready!");
      this.townTour = obj ["tour_avail"];
      this.townDescThen = obj ["description_then"];
      this.townDescNow = obj ["description_now"];
-     }
+   }
 
      Town.prototype.populateTown  = function populateTown () {
        //function to render town
@@ -108,4 +107,4 @@ console.log("I'm ready!");
        $('#townDescNow').text(this.townDescNow);
      };
    });
-// )};
+}
