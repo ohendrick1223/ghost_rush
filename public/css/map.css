@@ -17,20 +17,21 @@
   margin: auto;
   display: block;
 }
-/* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 /*set the size of greeting and instructions*/
 #mapTitle{
   text-align: center;
-  margin:auto;
-  padding: 10px;
+  margin:3px;
+  padding: 1px;
+  font-family:'IM Fell English SC', serif;
+  font-size: 1.7em;
 }
-#footerLogOut{
-  float: right;
-  margin-right: 30px;
+
+#mainMapBackground{
+  background-color: rgba(205,163,79, 0.3);
+
+}
+
+#footerAdmin {
+  margin-right: 10px;
 }

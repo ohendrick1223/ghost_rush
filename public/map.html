@@ -7,7 +7,10 @@
   <title>Ghost Rush</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/map.css">
   <!-- <script src="js/map.js"></script> -->
 </head>
@@ -15,8 +18,10 @@
 <body>
   <header>
     <nav role="navigation" id="nav-header">
-        <div class="nav-wrapper container">
-          <a id="mainLogo" href="index.html" class="brand-logo"><img src="../images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+
+        <div class="nav-wrapper container navContainer">
+          <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+
           <ul class="right hide-on-med-and-down">
             <li><a href="user_profile.html" id="headerProfile">My Profile</a></li>
           </ul>
@@ -32,12 +37,12 @@
         <!-- end nav-wrapper -->
       </nav>
   </header>
-  <main>
+  <main id = "mainMapBackground">
     <div class="container">
       <div class="row">
         <div class="col s12">
           <div id="mapTitle">
-            <p>Welcome!  Please select a marker to explore a specific location and enjoy your time exploring!</p>
+            <p>Welcome!  Please select a marker to learn more about a specific location and enjoy your time exploring!</p>
           </div>
         </div><!--col s12-->
       </div><!--row-->
@@ -45,17 +50,10 @@
 
         
         <div id="map">
-          <script src="js/map.js"></script>
         </div>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">
-        </script>
       </div>
     </div><!--container-->
-<<<<<<< HEAD
 
-=======
->>>>>>> 66f5933d3d71b397b2416f34607b5d6fd492fc18
   </main>
   <footer class="page-footer">
       <div class="container">
@@ -67,6 +65,10 @@
 
             <div id="footerHelp" class="right right-footer-link">
               <a href="#">Help</a>
+            </div>
+          
+            <div id="footerAdmin" class="right right-footer-link">
+              <a href="admin_page.html">Admin</a>
             </div><!-- end right footer link -->
 
             <div id="footerLogOut" class="right right-footer-link">
@@ -90,11 +92,13 @@
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/map.js"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<<<<<<< HEAD
 
-=======
 <script type="text/javascript" src="js/logout.js"></script>
->>>>>>> 66f5933d3d71b397b2416f34607b5d6fd492fc18
+
 </html>

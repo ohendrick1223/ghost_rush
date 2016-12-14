@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="admin_page.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Admin Page</title>
+</head>
+<body>
+  <header>
+    <nav role="navigation" id="nav-header">
+        <div class="nav-wrapper container">
+          <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+          <ul class="right hide-on-med-and-down">
+            <!-- <li><a href="user_profile.html" id="navLink1">My Profile</a></li> -->
+            <li><a href="index.html" class="logOut">Log Out</a></li>
+          </ul>
+
+          <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+            <!-- <li><a href="user_profile.html">My Profile</a></li> -->
+            <li><a href="map.html">Map</a></li>
+            <li><a href="index.html" class="logOut">Log out</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+        <!-- end nav-wrapper -->
+      </nav>
+  </header>
+
+ <main>
+   <div >
+     <h4 class="center-align">Ghost Rush Users</h4>
+   </div>
+
+  <div class="user_list">
+    <ul class="collection">
+      <li class="collection-item dismissable"><div class="admin_user_input">Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    </ul>
+  </div>
+
+
+ </main>
+
+
+  <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <div class="left left-footer-link">
+              <a href="#">Contact</a>
+            </div>
+            <!-- end left footer link -->
+            <div class="right right-footer-link">
+              <a href="#">Help</a>
+            </div>
+            <!-- end right footer link -->
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="center-align">
+            © 2016 Ladies Exploration League. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/admin_page.js"></script>
+  <script type="text/javascript" src="js/logout.js"></script>
+
+</body>
+</html>

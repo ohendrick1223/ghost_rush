@@ -2,37 +2,41 @@
 <html>
 
 <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Ghost Rush - Town Profile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/town_profile.css">
-    <link rel="stylesheet" type="text/css" href="css/map.css">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Ghost Rush - Town Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/town_profile.css">
 </head>
 
 <body>
-    <header>
-        <nav role="navigation" id="nav-header">
-            <div class="nav-wrapper container">
-                <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="user_profile.html" id="navLink1">My Profile</a></li>
-                    <li><a href="index.html" class="logOut">Log Out</a></li>
-                </ul>
+  <header>
+    <nav role="navigation" id="nav-header">
+        <div class="nav-wrapper container navContainer">
+          <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="user_profile.html" id="navLink1">My Profile</a></li>
+            <li><a href="index.html" class="logOut">Log Out</a></li>
+          </ul>
 
-                <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-                    <li><a href="user_profile.html">My Profile</a></li>
-                    <li><a href="map.html">Map</a></li>
-                    <li><a href="index.html" class="logOut">Log out</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-            <!-- end nav-wrapper -->
-        </nav>
-    </header>
-    <main>
+          <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+            <li><a href="user_profile.html">My Profile</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="index.html" class="logOut">Log out</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+        <!-- end nav-wrapper -->
+      </nav>
+  </header>
+  <main>
+
+<!--First Row-->
+<div class = "container first_row">
+  <div class = "row">
 
         <!--First Row-->
         <div class="container first_row">
@@ -60,7 +64,11 @@
 
                     <h6>Tour Available: <span id = "townTour">Yes</span></h6>
 
-                </div>
+    <!-- Want To Go/Been There Buttons -->
+    <div class = "col l3 buttons" id = "buttonsContainer">
+      <div class = "row">
+        <a href="#" id = "wantToGo" class="waves-effect waves-light btn">Want to Go</a>
+      </div>
 
                 <!-- Want To Go/Been There Buttons -->
                 <div class="col l3 buttons">
