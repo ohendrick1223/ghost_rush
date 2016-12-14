@@ -8,7 +8,6 @@ const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const router = express.Router();
 
-
 //sign up/registraion route
 router.post('/users', (req, res, next) => {
     const {
@@ -123,6 +122,16 @@ router.get('/users/:id', (req, res, next) => {
 
         });
 });
+
+// router.use(function(req, res, next) {
+//     console.log(req.user.userId);
+//
+//     if (!req.user.userId.is_admin) {
+//         res.sendStatus(401);
+//     } else {
+//         next();
+//     }
+// });
 
 
 //admin
