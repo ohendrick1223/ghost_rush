@@ -15,8 +15,7 @@ function init() {
 
   // map markers
 
-      $(document).ready(
-        function() {
+      $(document).ready(function() {
             console.log("I'm loaded");
 
             function TownLocation(townObj) {
