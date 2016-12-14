@@ -52,32 +52,7 @@ const admin_page = require('./routes/admin_page');
 
 
 //auth setup
-<<<<<<< HEAD
-const authorize = function(req, res, next) {
-    const token = req.cookies.token;
 
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-            if (err) {
-                res.redirect('../index.html');
-            }
-            req.user = decoded;
-            console.log("req.user:", req.user);
-            next();
-        });
-    } else {
-        next();
-    }
-};
-
-app.use('/admin_page.html', authorize, function(req, res, next) {
-    if (!req.user) {
-        res.redirect('../map.html');
-    } else {
-        next();
-    }
-});
-=======
 // const authorize = function(req, res, next) {
 //     const token = req.cookies.token;
 //     console.log(token);
@@ -102,7 +77,7 @@ app.use('/admin_page.html', authorize, function(req, res, next) {
 //         next();
 //     }
 // });
->>>>>>> 13d2ad03e33deb5bfa614195dec1e7daef7e8906
+
 
 app.use(express.static('./public'));
 
