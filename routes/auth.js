@@ -10,21 +10,21 @@ const router = express.Router();
 
 //login route!
 router.post('/auth', (req, res, next) => {
-    console.log("I'm getting to the post");
+    //console.log("I'm getting to the post");
     const {
         email,
         password
     } = req.body;
-    console.log("Im getting past the variables");
+    //console.log("Im getting past the variables");
     if (!email || !email.trim()) {
         console.log("I'm getting past evaluation");
         return next(boom.create(400, 'Email must not be blank'));
     }
-    console.log("Im getting past email");
+    //console.log("Im getting past email");
     if (!password || password.length < 8) {
         return next(boom.create(400, 'Password must not be blank'));
     }
-    console.log("getting past password");
+    //console.log("getting past password");
     let user;
 
     knex('users')

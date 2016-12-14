@@ -30,8 +30,9 @@ switch (app.get('env')) {
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+const path = require('path');
 
-app.use(express.static('public'));
+app.use(express.static(path.join('public')));
 
 // CSRF protection
 // Look into this
@@ -47,9 +48,11 @@ const users = require('./routes/users');
 const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
+const admin_page = require('./routes/admin_page');
 
 
 //auth setup
+<<<<<<< HEAD
 const authorize = function(req, res, next) {
     const token = req.cookies.token;
 
@@ -74,6 +77,32 @@ app.use('/admin_page.html', authorize, function(req, res, next) {
         next();
     }
 });
+=======
+// const authorize = function(req, res, next) {
+//     const token = req.cookies.token;
+//     console.log(token);
+//     if (token) {
+//         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//             if (err) {
+//                 res.redirect('../map.html');
+//             }
+//             req.user = decoded;
+//             console.log(req.user);
+//             next();
+//         });
+//     } else {
+//         next();
+//     }
+// };
+
+// app.get('/admin_page', authorize, function(req, res, next) {
+//     if (!req.user) {
+//         res.redirect('../map.html');
+//     } else {
+//         next();
+//     }
+// });
+>>>>>>> 13d2ad03e33deb5bfa614195dec1e7daef7e8906
 
 app.use(express.static('./public'));
 
@@ -82,6 +111,7 @@ app.use(users);
 app.use(auth);
 app.use(towns);
 app.use(user_town_lists);
+app.use('/admin_page', admin_page);
 
 app.use((_req, res) => {
     res.sendStatus(404);
