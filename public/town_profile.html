@@ -7,6 +7,7 @@
   <title>Ghost Rush - Town Profile</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/town_profile.css">
 </head>
@@ -14,7 +15,7 @@
 <body>
   <header>
     <nav role="navigation" id="nav-header">
-        <div class="nav-wrapper container">
+        <div class="nav-wrapper container navContainer">
           <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="user_profile.html" id="navLink1">My Profile</a></li>
@@ -62,7 +63,7 @@
     </div>
 
     <!-- Want To Go/Been There Buttons -->
-    <div class = "col l3 buttons">
+    <div class = "col l3 buttons" id = "buttonsContainer">
       <div class = "row">
         <a href="#" id = "wantToGo" class="waves-effect waves-light btn">Want to Go</a>
       </div>

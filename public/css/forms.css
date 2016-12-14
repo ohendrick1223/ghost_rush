@@ -4,7 +4,37 @@
   padding-left: 35px;
   padding-right: 35px;
 }
-.btn {
+
+#logInSubmitButton, #signUpSubmitButton{
   margin: auto;
   display: block;
+  background-color:#373f27;
+}
+
+#logOutlineContainer{
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+#logPageOutline{
+  background-image: url('../images/Ghost_Rush_Outline.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  opacity: 0.6;
+}
+
+#signOutlineContainer{
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+#signPageOutline{
+  background-image: url('../images/Ghost_Rush_Outline.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  opacity: 0.6;
 }
