@@ -85,7 +85,6 @@ router.get('/user_town_lists/false', function (req, res, next) {
     } );
 } );
 //check if entry for user+town already exists
-<<<<<<< HEAD
 router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
   console.log("did something");
   const token = req.cookies.token;
