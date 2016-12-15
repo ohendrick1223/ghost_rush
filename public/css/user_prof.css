@@ -1,0 +1,30 @@
+#wantGalleryTitle {
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+#beenGalleryTitle {
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 20px;
+}
+
+#bgt-box,
+#wtg-box,
+#pib-box {
+  border-radius: 4px;
+}
+
+#btc-row,
+#wtg-row {
+  background-color: rgba(228, 225, 225, 0.6);
+  padding: 10px;
+}
+
+#profileInfoBox{
+  font-size: 1vw;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
