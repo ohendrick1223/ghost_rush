@@ -2,6 +2,7 @@
 
 // initialize map object constructor and database call
 function init() {
+
     var tarryall = {
         lat: 39.119080,
         lng: -105.473900

@@ -22,9 +22,7 @@ const authorize = function( req, res, next ) {
 };
 
 //populate cards
-
 router.get('/user_town_lists/true', authorize, function (req, res, next) {
-
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
@@ -32,7 +30,8 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
       'user_town_lists.visited': true
     })
     .orderBy('towns.name', 'ASC')
-    .then( ( data ) => {
+    .then((data) => {
+
       const list = data;
       res.send( list );
     } )
@@ -40,6 +39,7 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
       next( err );
     } );
 } );
+
 router.get('/user_town_lists/false', authorize, function (req, res, next) {
 
   knex( 'user_town_lists' )
@@ -80,11 +80,9 @@ router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
 //get user_town_lists
 //user_id and town_id if there's the match we need to send back object if not
 
-
 router.post( '/user_town_lists', ( req, res, next ) => {
   const towns_id = Number.parseInt( req.body.towns_id );
   const users_id = Number.parseInt( req.body.users_id );
-
 
   if ( !Number.isInteger( towns_id ) ) {
     return next( boom.create( 400, 'towns ID must be an integer' ) );

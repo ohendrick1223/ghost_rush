@@ -7,6 +7,7 @@
   <title>Ghost Rush</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
@@ -17,19 +18,19 @@
 <body>
   <header>
     <nav role="navigation" id="nav-header">
+
         <div class="nav-wrapper container navContainer">
           <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
+
           <ul class="right hide-on-med-and-down">
             <li><a href="user_profile.html" id="headerProfile">My Profile</a></li>
-            <li><a href="index.html" class="logOut">Log Out</a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
             <!--<li><a href="#" id="navLink2">Navbar Link</a></li>-->
           </ul>
 
           <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-            <li><a href="user_profile.html">My Profile</a></li>
-            <li><a href="index.html" class="logOut">Log out</a></li>
+            <li><a href="#">Navbar Link</a></li>
           </ul>
           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -47,11 +48,12 @@
       </div><!--row-->
       <div class="row">
 
-
+        
         <div id="map">
         </div>
       </div>
     </div><!--container-->
+
   </main>
   <footer class="page-footer">
       <div class="container">
@@ -63,7 +65,16 @@
 
             <div id="footerHelp" class="right right-footer-link">
               <a href="#">Help</a>
+            </div>
+
+            <div id="footerAdmin" class="right right-footer-link">
+              <a href="/admin_page">Admin</a>
             </div><!-- end right footer link -->
+
+            <div id="footerLogOut" class="right right-footer-link">
+              <a href="#">Log Out</a>
+            </div><!--end right footer log out link-->
+
           </div>
         </div><!--row-->
       </div><!--container-->
@@ -87,5 +98,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
 <script type="text/javascript" src="js/logout.js"></script>
+
 </html>
