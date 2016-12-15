@@ -81,7 +81,7 @@ function Town (town) {
         position: {lat: this.lat, lng: this.lng},
         map: map
        });
-       console.log(marker);
+      //  console.log(marker);
      };
    })
   }
