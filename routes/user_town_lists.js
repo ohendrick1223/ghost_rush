@@ -25,7 +25,6 @@ const authorize = function( req, res, next ) {
 
 router.get('/user_town_lists/true', authorize, function (req, res, next) {
 
-
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
@@ -41,6 +40,7 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
       next( err );
     } );
 } );
+
 router.get('/user_town_lists/false', authorize, function (req, res, next) {
 
   knex( 'user_town_lists' )
