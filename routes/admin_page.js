@@ -29,6 +29,28 @@ router.get('/', (req, res, next) => {
   }
 });
 
+router.delete('/users/:id',(req, res, next) => {
+    const userID = parseInt(req.params.id);
+    knex('users')
+        .del()
+        .where({
+            id: userID
+        })
+        .returning('*')
+        .then((user) => {
+            res.status(200).json({
+                status: 'success',
+                data: user
+            });
+        })
+        .catch((err) => {
+            res.status(500).json({
+                status: 'error',
+                data: err
+            });
+        });
+});
+
 
 
 module.exports = router;
