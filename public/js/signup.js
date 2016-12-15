@@ -110,19 +110,3 @@
     });
 
 })();
-
-
-
-// $xhr.done(function(data) {
-//     if ($xhr.status !== 200) {
-//         // The served an unsuccessful status code.
-//         return;
-//     }
-//
-//     console.log(data);
-// });
-//
-// $xhr.fail(function(err) {
-//     // The request was unsuccessful for some reason (ie. the server couldn't even respond).
-//     console.log(err);
-// });

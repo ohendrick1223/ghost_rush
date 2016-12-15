@@ -50,7 +50,7 @@ router.delete('/towns/:id', (req, res, next) => {
     if (Number.isNaN(id)) {
         return next();
     }
-    var town;
+    let town;
 
     knex('towns')
         .where('id', id)
