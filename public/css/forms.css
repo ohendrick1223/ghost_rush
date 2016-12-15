@@ -5,7 +5,7 @@
   padding-right: 35px;
 }
 
-#logInSubmitButton, #signUpSubmitButton{
+#logInSubmitButton, #signUpSubmitButton{  
   margin: auto;
   display: block;
   background-color:#373f27;
