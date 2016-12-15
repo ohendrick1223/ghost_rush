@@ -116,7 +116,7 @@ router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
               data: entry,
               userId: req.user.userId
             }
-            console.log(responseObject);
+            console.log("RESPONSE OBJECT: ", responseObject);
             res.send( responseObject );
           } )
           .catch( ( err ) => {
@@ -135,6 +135,7 @@ router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
 //users_id and towns_id if there's the match we need to send back object if not
 
 router.post( '/user_town_lists', ( req, res, next ) => {
+  console.log(req.body);
   const towns_id = Number.parseInt( req.body.towns_id );
   const users_id = Number.parseInt( req.body.users_id );
   if ( !Number.isInteger( towns_id ) ) {
