@@ -100,6 +100,24 @@ router.post('/users', (req, res, next) => {
 });
 
 
+router.get('/users', (req, res, next) => {
+    knex('users')
+        .select('*')
+        .then((users) => {
+            res.status(200).json({
+                status: 'success',
+                data: users
+            });
+        })
+        .catch((err) => {
+            res.status(500).json({
+                status: 'error',
+                data: err
+            });
+        });
+});
+
+
 //this route gets a single user by id (TODO:only user logged in can access their information)
 router.get('/users/:id', (req, res, next) => {
     const userID = parseInt(req.params.id);
@@ -123,16 +141,6 @@ router.get('/users/:id', (req, res, next) => {
         });
 });
 
-// router.use(function(req, res, next) {
-//     console.log(req.user.userId);
-//
-//     if (!req.user.userId.is_admin) {
-//         res.sendStatus(401);
-//     } else {
-//         next();
-//     }
-// });
-
 
 //admin
 router.delete('/users/:id',(req, res, next) => {
@@ -147,24 +155,6 @@ router.delete('/users/:id',(req, res, next) => {
             res.status(200).json({
                 status: 'success',
                 data: user
-            });
-        })
-        .catch((err) => {
-            res.status(500).json({
-                status: 'error',
-                data: err
-            });
-        });
-});
-
-//this route gets all users (TODO:can admin access profile pages of users(may be a stretch))
-router.get('/users', (req, res, next) => {
-    knex('users')
-        .select('*')
-        .then((users) => {
-            res.status(200).json({
-                status: 'success',
-                data: users
             });
         })
         .catch((err) => {
