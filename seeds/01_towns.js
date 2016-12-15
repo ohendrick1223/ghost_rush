@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 3,
                     name: 'Silver Plume',
-                    photo_url: 'http://www.uncovercolorado.com/wp-content/uploads/2011/11/2011-11-16_Silver-Plume-Main-Street-Sign-1000x500-650x325.jpg',
+                    photo_url: 'http://www.uncovercolorado.com/wp-content/uploads/2013/12/2011-11-16_Silver-Plume-Park.jpg',
                     yr_est: 1870,
                     yr_abnd: 'Still Alive',
                     short_desc: '<b>Silver Plume</b>, established in 1870, was founded for silver mining. It\'s known for a minor who was well loved by the community, but he tragically commited suicide when he was unable to find happiness after his fiance\'s death. The town has several buildings still standing.',
@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 4,
                     name: 'Independence',
-                    photo_url: 'https://en.wikipedia.org/wiki/File:Abandoned_log_cabins,_Independence,_CO.jpg',
+                    photo_url: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRr6OIaUI7yzeK6UqDTlBBMzahdB-E0Y9SYNFT3QpnbHOxkJk_Bqw',
                     yr_est: 1879,
                     yr_abnd: 1899,
                     short_desc: '<b>Independence</b>, established in 1879, was founded when gold was discovered on July 4, 1879. The town is no longer populated but is available for tours.',
@@ -174,7 +174,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 12,
                     name: "Teddi Town",
-                    photo_url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQCaUz-6a0UIrjL3lQM4POBV4PJATxYruDg7R46szGGSOZnLLb7Kw',
+                    photo_url: 'http://thedisneyblog.com/wp-content/uploads/2012/09/haunted-mansion-holiday-dlr.jpg',
                     yr_est: 1820,
                     yr_abnd: 'Still Alive',
                     short_desc: '<b>Teddi Town</b>, established in 1883, was a silver mining town for several years. The town was destroyed by a 50-foot toddler in 1901, but a few buildings are still partially standing.',
