@@ -32,8 +32,6 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
       'user_town_lists.visited': true
     })
     .orderBy('towns.name', 'ASC')
-    .then((data) => {
-    .orderBy( 'towns.name', 'ASC' )
     .then( ( data ) => {
       const list = data;
       res.send( list );
@@ -51,8 +49,6 @@ router.get('/user_town_lists/false', authorize, function (req, res, next) {
       'user_town_lists.visited': false
     })
     .orderBy('towns.name', 'ASC')
-    .then((data) => {
-    .orderBy( 'towns.name', 'ASC' )
     .then( ( data ) => {
       const list = data;
       res.send( list );
