@@ -28,7 +28,7 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
-      'user_town_lists.user_id': req.cookies.token.user.id,
+      'user_town_lists.users_id': req.body.users_id,
       'user_town_lists.visited': true
     })
     .orderBy('towns.name', 'ASC')
@@ -46,7 +46,7 @@ router.get('/user_town_lists/false', authorize, function (req, res, next) {
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
-      'user_town_lists.user_id': req.cookies.token.user.id,
+      'user_town_lists.users_id': req.body.users_id,
       'user_town_lists.visited': false
     })
     .orderBy('towns.name', 'ASC')
@@ -63,10 +63,10 @@ router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
 
   knex( 'user_town_lists' )
     .where( {
-      'user_id': req.body.user_id,
-      'town_id': req.body.town_id
+      'users_id': req.body.users_id,
+      'towns_id': req.body.towns_id
     } )
-    .orderBy( 'user_id', 'ASC' )
+    .orderBy( 'users_id', 'ASC' )
     .then( ( data ) => {
       const list = data;
       res.send( list );
@@ -79,7 +79,7 @@ router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
 
 
 //get user_town_lists
-//user_id and town_id if there's the match we need to send back object if not
+//users_id and towns_id if there's the match we need to send back object if not
 
 router.post( '/user_town_lists', ( req, res, next ) => {
   const towns_id = Number.parseInt( req.body.towns_id );
