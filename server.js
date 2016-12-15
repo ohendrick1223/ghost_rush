@@ -1,7 +1,7 @@
 'use strict';
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+    require('dotenv').config();
 }
 
 const express = require('express');
@@ -13,17 +13,18 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const jwt = require('jsonwebtoken');
+const knex = require('knex');
 
 switch (app.get('env')) {
-  case 'development':
-    app.use(morgan('dev'));
-    break;
+    case 'development':
+        app.use(morgan('dev'));
+        break;
 
-  case 'production':
-    app.use(morgan('short'));
-    break;
+    case 'production':
+        app.use(morgan('short'));
+        break;
 
-  default:
+    default:
 }
 
 app.use(bodyParser.json());
@@ -31,8 +32,6 @@ app.use(cookieParser());
 
 const path = require('path');
 
-
-//admin
 app.use(express.static(path.join('public')));
 
 // CSRF protection
@@ -49,54 +48,68 @@ const users = require('./routes/users');
 const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
+const admin_page = require('./routes/admin_page');
 
-const authorize = function(req, res, next) {
-  const token = req.cookies.token;
 
-//   //TODO:If a token exists - decode it and add the contents to req.user
-//
-//   //TODO:If no token exists - do nothing (i.e. next());
+//auth setup
+// const authorize = function(req, res, next) {
+//     const token = req.cookies.token;
+//     console.log(token);
+//     if (token) {
+//         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//             if (err) {
+//                 res.redirect('../map.html');
+//             }
+//             req.user = decoded;
+//             console.log(req.user);
+//             next();
+//         });
+//     } else {
+//         next();
+//     }
+// };
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-      if (token) {
-        req.user = decoded;
-        console.log(req.user);
-      }
-      next();
-  });
-};
+// app.get('/admin_page', authorize, function(req, res, next) {
+//     if (!req.user) {
+//         res.redirect('../map.html');
+//     } else {
+//         next();
+//     }
+// });
 
+app.use(express.static('./public'));
 
 
 app.use(users);
 app.use(auth);
 app.use(towns);
 app.use(user_town_lists);
+app.use('/admin_page', admin_page);
 
 app.use((_req, res) => {
-  res.sendStatus(404);
+    res.sendStatus(404);
 });
 
 
 
 app.use((err, _req, res, _next) => {
-  if (err.output && err.output.statusCode) {
-    return res
-      .status(err.output.statusCode)
-      .set('Content-Type', 'text/plain')
-      .send(err.message);
-  }
+    if (err.output && err.output.statusCode) {
+        return res
+            .status(err.output.statusCode)
+            .set('Content-Type', 'text/plain')
+            .send(err.message);
+    }
 
-  console.error(err.stack);
-  res.sendStatus(500);
+    console.error(err.stack);
+    res.sendStatus(500);
 });
 
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  if (app.get('env') !== 'test') {
-    console.log('Listening on port', port);
-  }
+    if (app.get('env') !== 'test') {
+        console.log('Listening on port', port);
+    }
 });
 
 module.exports = app;

@@ -3,19 +3,15 @@
 // initialize map object constructor and database call
 function init() {
 
-  var tarryall = {
-    lat: 39.119080,
-    lng: -105.473900
-  };
-
-  var map = new google.maps.Map( document.getElementById( 'map' ), {
-    zoom: 7,
-    center: tarryall
-  } );
-
-  // map markers
-
-      $(document).ready(
+    var tarryall = {
+        lat: 39.119080,
+        lng: -105.473900
+    };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: tarryall
+    });
+    $(document).ready(
         function() {
             console.log("I'm loaded");
 

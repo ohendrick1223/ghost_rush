@@ -6,18 +6,18 @@
     <meta charset="utf-8">
     <title>Ghost Rush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <header>
         <nav role="navigation" id="nav-header">
-            <div class="nav-wrapper container">
+            <div class="nav-wrapper container navContainer">
                 <a id="mainLogo" href="map.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush logo" height="75px" width="75px" class="logo-small"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="index.html" class="logOut">Log out</a></li> <!-- Some j.s. manipulation for delete cookie route -->
-
+                    <li><a href="index.html" class="logOut">Log out</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="map.html" id="navLink2Profile">Map</a></li>
@@ -50,25 +50,8 @@
               <div class="col s1 border z-depth-2 center-align">
               <p id="wantGalleryTitle">Want to Go</p>
               </div>
-              <div class="row" id="wantGhostTownDiv">
-                <!-- dynamically load ghost town name/photo here, as well as card container below -->
-                <div class="col s3">
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg" class="responsive-img" id="wantGhostTownPic">
-                      <span class="card-title center-align" id="wantGhostTownName">Name of Ghost town</span>
-                    </div>
-                    <div class="card-content center-align">
-                      <a href="#">Visit Map Page</a><!-- reference route for unique ghost town page -->
-                      <div class="section">
-                      <div class="divider"></div>
-                    </div>
-                    <div class="card-content">
-                      <a href="#" id="wantDeleteTown">Delete from List</a><!-- reference delete route for  deleting a ghost-town -->
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="row wantTownCard">
+                <!-- dynamically load ghost town name/photo here, as well as container from users.js populateCard function line 28 -->
             </div>
         </div>
 
@@ -76,25 +59,8 @@
               <div class="col s1 border z-depth-2 center-align">
               <p id="beenGalleryTitle">Been there</p>
               </div>
-              <div class="row" id="beenGhostTownDiv">
+              <div class="row beenTownCard">
                 <!-- dynamically load ghost town name/photo here, as well as card container below -->
-                <div class="col s3">
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="http://www.legendsofamerica.com/photos-centralcity/CentralCityPostcard.jpg" class="responsive-img" id="beenGhostTownPic">
-                      <span class="card-title center-align" id="beenGhostTownName">Name of Ghost town</span>
-                    </div>
-                    <div class="card-content center-align">
-                      <a href="#">Visit Map Page</a>
-                      <div class="section">
-                      <div class="divider"></div>
-                    </div>
-                    <div class="card-content">
-                      <a href="#">Delete from List</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
         </div>
 
@@ -130,8 +96,8 @@
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/user.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/logout.js"></script>
-
 </html>
