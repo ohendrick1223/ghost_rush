@@ -12,8 +12,7 @@ app.disable('x-powered-by');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-const jwt = require('jsonwebtoken');
-const knex = require('knex');
+
 
 switch (app.get('env')) {
     case 'development':
@@ -36,50 +35,11 @@ const path = require('path');
 
 app.use(express.static(path.join('public')));
 
-// CSRF protection
-// Look into this
-// app.use((req, res, next) => {
-//   if (/json/.test(req.get('Accept'))) {
-//     return next();
-//   }
-//
-//   res.sendStatus(406);
-// });
-
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 const admin_page = require('./routes/admin_page');
-
-
-//auth setup
-
-// const authorize = function(req, res, next) {
-//     const token = req.cookies.token;
-//     console.log(token);
-//     if (token) {
-//         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-//             if (err) {
-//                 res.redirect('../map.html');
-//             }
-//             req.user = decoded;
-//             console.log(req.user);
-//             next();
-//         });
-//     } else {
-//         next();
-//     }
-// };
-
-// app.get('/admin_page', authorize, function(req, res, next) {
-//     if (!req.user) {
-//         res.redirect('../map.html');
-//     } else {
-//         next();
-//     }
-// });
-
 
 app.use(express.static('./public'));
 
