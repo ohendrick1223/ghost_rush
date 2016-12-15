@@ -27,6 +27,8 @@ switch (app.get('env')) {
 }
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(cookieParser());
 
 const path = require('path');
@@ -38,7 +40,6 @@ const auth = require('./routes/auth');
 const towns = require('./routes/towns');
 const user_town_lists = require('./routes/user_town_lists');
 const admin_page = require('./routes/admin_page');
-
 
 app.use(express.static('./public'));
 
