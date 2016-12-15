@@ -28,6 +28,8 @@ switch (app.get('env')) {
 }
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(cookieParser());
 
 const path = require('path');
@@ -52,6 +54,7 @@ const admin_page = require('./routes/admin_page');
 
 
 //auth setup
+
 // const authorize = function(req, res, next) {
 //     const token = req.cookies.token;
 //     console.log(token);
@@ -76,6 +79,7 @@ const admin_page = require('./routes/admin_page');
 //         next();
 //     }
 // });
+
 
 app.use(express.static('./public'));
 
