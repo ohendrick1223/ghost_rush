@@ -49,3 +49,13 @@ body {
   border-width: 0.5px;
   margin: 15px;
 }
+
+.imageSizing {
+  min-height: 258px;
+}
+
+#profileInfoBox {
+  width: 200px;
+  height: 100px;
+  margin:auto;
+}
