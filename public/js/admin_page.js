@@ -27,7 +27,8 @@
     var id = "<td>" + this.id + "</td>";
     var username = "<td>" + this.username + "</td>";
     var email = "<td>" +this.email + "</td>";
-   $('#admin_full_userlist').append($("<tr>").append(id + username + email + "<i class='large material-icons'>delete</i>"));
+    var icon = "<td>" + "<a href='#'><i class='small material-icons'>delete</i></a>" + "</td>";
+   $('#admin_full_userlist').append($("<tr>").append(`${id} ${username} ${email} ${icon}`));
   };
 
   function createList(obj) {
