@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="admin_page.css">
+  <link rel="stylesheet" href="css/admin_page.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Admin Page</title>
 </head>
@@ -35,11 +35,25 @@
      <h4 class="center-align">Ghost Rush Users</h4>
    </div>
 
-  <div class="user_list">
-    <ul class="collection">
-      <li class="collection-item dismissable"><div class="admin_user_input">Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    </ul>
-  </div>
+
+<!-- old list -->
+  <!-- <div class="user_list">
+    <ul id="admin_full_userlist">
+  </ul>
+  </div> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th data-field="id">Id</th>
+        <th data-field="username">Username</th>
+        <th data-field="email">Email</th>
+      </tr>
+    </thead>
+    <tbody id="admin_full_userlist">
+      
+    </tbody>
+  </table>
 
 
  </main>

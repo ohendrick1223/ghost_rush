@@ -22,7 +22,9 @@ const authorize = function( req, res, next ) {
 };
 
 //populate cards
+
 router.get('/user_town_lists/true', authorize, function (req, res, next) {
+
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
@@ -31,7 +33,6 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
     })
     .orderBy('towns.name', 'ASC')
     .then((data) => {
-
       const list = data;
       res.send( list );
     } )
