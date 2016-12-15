@@ -81,6 +81,10 @@ function init() {
         map: map
       });
       //  console.log(marker);
+
     };
+    //toasts for buttons
+    Materialize.toast(); // 4000 is the duration of the toast
   });
 }
+    
