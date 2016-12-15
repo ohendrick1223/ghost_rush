@@ -10,6 +10,7 @@ const router = express.Router();
 
 //sign up/registraion route
 router.post('/users', (req, res, next) => {
+  console.log("req.body: ", req.body);
     const {
         username,
         email,
@@ -53,13 +54,13 @@ router.post('/users', (req, res, next) => {
 
     .then((hashed_password) => {
 
-            const {
-                username,
-                email,
-                location_city,
-                location_state
-
-            } = req.body;
+            // const {
+            //     username,
+            //     email,
+            //     location_city,
+            //     location_state
+            //
+            // } = req.body;
             const insertUser = {
                 username,
                 email,
@@ -67,6 +68,7 @@ router.post('/users', (req, res, next) => {
                 location_state,
                 hashed_password
             };
+            console.log("insertUser: ", insertUser);
 
             return knex('users')
                 .insert((insertUser), '*');
@@ -119,26 +121,42 @@ router.get('/users', (req, res, next) => {
 
 
 //this route gets a single user by id (TODO:only user logged in can access their information)
-router.get('/users/:id', (req, res, next) => {
-    const userID = parseInt(req.params.id);
-    knex('users')
-        .select('*')
-        .where({
+router.get('/users/getid', (req, res, next) => {
+  const token = req.cookies.token;
+  console.log(token);
+  if (token) {
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+          if (err) {
+              res.redirect('../map.html');
+          }
+          req.user = decoded;
+          console.log(req.user);
+          console.log(req.user.userId);
+
+          const userID = req.user.userId;
+          knex('users')
+          .select('*')
+          .where({
             id: userID
-        })
-        .then((users) => {
+          })
+          .then((users) => {
             res.status(200).json({
-                status: 'success',
-                data: users
+              status: 'success',
+              data: users[0]
             });
-        })
-        .catch((err) => {
+          })
+          .catch((err) => {
             res.status(500).json({
-                status: 'error',
-                data: err
+              status: 'error',
+              data: err
             });
 
+          });
         });
+        }else {
+          console.log("did something else");
+            next();
+        }
 });
 
 
