@@ -1,26 +1,31 @@
 .first_row {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
   height: 260px;
 }
 
 .second_row {
   height: 260px;
+  margin-bottom: 100px;
 }
 
 #townPhoto {
-height: 250px;
+height: 280px;
+background-size: cover;
+background-repeat: no-repeat;
+margin-left: 30px;
 }
 
-img#image {
+/*#image {
   display: block;
   margin-top: 30px;
   width: 300px;
-  height:200px;
-}
+  height: 200px;
+}*/
 
 #townDetails {
   height: 250px;
+  width: 350px;
 }
 
 .buttons {
@@ -30,9 +35,10 @@ img#image {
 .btn {
   margin-left: auto;
   margin-top: 50px;
+  background-color:#373f27;
 }
 
-p#townDescThen {
+#townDescThen {
   height: inherit;
 }
 
@@ -41,7 +47,10 @@ p#townDescThen {
 }
 
 #map {
-  width: 320px;
-  height: 200px;
-  margin: auto;
+  width: 370px;
+  height: 250px;
+}
+
+#townDetails{
+  /*border: .5px solid grey;*/
 }
