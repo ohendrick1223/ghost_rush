@@ -43,6 +43,24 @@
 }
 
 #splashSignUpLogo{
+transform: rotate(360deg);
+animation-iteration-count: infinite;
+  /*animation-duration: 3s;
+  animation-name: slidein;
+  animation-delay: 8s;
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: 100%;
+    width: 20%;
+  }
+
+  to {
+    margin-bottom: 0%;
+    width: 100%;
+  }*/
+
   padding-right: 15px;
 }
 
@@ -54,4 +72,24 @@
   color: #636b46;
   font-size: 1em;
   font-family: 'Josefin Sans', sans-serif;
+}
+
+#mainLogo {
+  animation-duration: 6s;
+  animation-name: slidein;
+
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 50%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+
+
 }
