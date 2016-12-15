@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 3,
                     name: 'Silver Plume',
-                    photo_url: 'http://www.uncovercolorado.com/wp-content/uploads/2013/12/2011-11-16_Silver-Plume-Park.jpg',
+                    photo_url: 'http://pics4.city-data.com/cpicv/vfiles10228.jpg',
                     yr_est: 1870,
                     yr_abnd: 'Still Alive',
                     short_desc: 'Silver Plume, established in 1870, was founded for silver mining. It\'s known for a minor who was well loved by the community, but he tragically commited suicide when he was unable to find happiness after his fiance\'s death. The town has several buildings still standing.',
@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 4,
                     name: 'Independence',
-                    photo_url: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRr6OIaUI7yzeK6UqDTlBBMzahdB-E0Y9SYNFT3QpnbHOxkJk_Bqw',
+                    photo_url: 'http://cdn.allaspen.com/images/content/3742_5313_Independence_Colorado_Ghost_Town_md.jpg',
                     yr_est: 1879,
                     yr_abnd: 1899,
                     short_desc: 'Independence, established in 1879, was founded when gold was discovered on July 4, 1879. The town is no longer populated but is available for tours.',
@@ -84,7 +84,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 6,
                     name: "Ashcroft",
-                    photo_url: 'http://aspenhistory.org/wp-content/uploads/2015/07/tours-museum_images_ashcroft41.jpg',
+                    photo_url: 'http://www.natezeman.com/images/xl/0369_The_Hotel_View_Nate_Zemanjpg.jpg',
                     yr_est: 1880,
                     yr_abnd: 1939,
                     short_desc: 'Ashcroft, established in 1880, was mined for silver. Many of the buildings still standing have false fronts since a television series was filmed there during the 1950s.',
@@ -129,7 +129,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 9,
                     name: 'Gilman',
-                    photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/DSCN3044_gilmancliff_e_600.jpg/550px-DSCN3044_gilmancliff_e_600.jpg',
+                    photo_url: 'http://strangeabandonedplaces.com/wp-content/uploads/2016/02/image-5.jpeg',
                     yr_est: 1886,
                     yr_abnd: 1984,
                     short_desc: 'Gilman, established in 1886, was founded for gold and silver mining. It was abandoned in 1984 by order of the EPA due to toxic pollutants in the water. Gilman is currently on private property and off limits to the public.',
@@ -174,7 +174,7 @@ exports.seed = function(knex, Promise) {
                 knex('towns').insert({
                     id: 12,
                     name: "Teddi Town",
-                    photo_url: 'http://thedisneyblog.com/wp-content/uploads/2012/09/haunted-mansion-holiday-dlr.jpg',
+                    photo_url: 'https://secure.parksandresorts.wdpromedia.com/media/disneyparks/blog/wp-content/uploads/2011/09/day593242LARGE.jpg',
                     yr_est: 1820,
                     yr_abnd: 'Still Alive',
                     short_desc: 'Teddi Town, established in 1883, was a silver mining town for several years. The town was destroyed by a 50-foot toddler in 1901, but a few buildings are still partially standing.',
