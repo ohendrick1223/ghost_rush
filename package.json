@@ -40,7 +40,7 @@
     "test": "^0.6.0"
   },
   "engines": {
-    "node": "7.1.0"
+    "node": "7.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
