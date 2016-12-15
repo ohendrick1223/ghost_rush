@@ -24,24 +24,30 @@ $( document ).ready(
     $.getJSON( validateRoute )
       .done( ( data ) => {
         // if entry exists
+        console.log("data: ", data);
         const response = data;
-        console.log("HERE'S THE RESPONSE: ", response.data);
-        if ( response.data.length > 0) { //TODO need sample response for conditional!!!!
+        const responseData = response.data
+        console.log("HERE'S THE RESPONSE: ", response);
+        if ( responseData.length > 0) {
           // townEntry.toggleVisited
-          var townEntry = new UserTownEntry(response[0]);
-          // TODO validate that toggle matches the button
+          var townEntry = new UserTownEntry(responseData[0]);
+          var patchRoute = '/user_town_lists/' + townEntry.id;
+          console.log("townEntry.id: ", townEntry.id);
+          var updatedData = "";
           console.log("target", target.id);
           if ( target.is( '#beenThere' ) ) {
-            townEntry.beenThere();
+            updatedData = townEntry.beenThere();
           }
           // if event target = #wantToGo
           if ( target.is( '#wantToGo' ) ) {
-            townEntry.wantToGo();
+            updatedData = townEntry.wantToGo();
           }
           // patch to database
-          var patchRoute = '/user_town_lists/' + townEntry.id;
+
+          console.log("patch route: ", patchRoute);
+
           $.ajax( patchRoute, {
-            body: townEntry,
+            body: updatedData,
             method: 'PATCH'
           } );
           // .done( () => {
@@ -57,7 +63,7 @@ $( document ).ready(
           var myData = "";
 
           if ( target.is( '#beenThere' ) ) {
-            townEntryRequest.beenThere();
+            myData = townEntryRequest.beenThere();
           }
           // if event target = #wantToGo
           if ( target.is( '#wantToGo' ) ) {
@@ -94,11 +100,12 @@ $( document ).ready(
     console.log("VISITED: ", this.visited);
   }
 
-  // .beenThere - set visited to true
-  // NewUserTownEntry.prototype.beenThere = function() {
-  //   console.log("ABOUT TO SET VISITED");
-  //   this.visited = true;
-  // };
+
+  NewUserTownEntry.prototype.beenThere = function() {
+    console.log("ABOUT TO SET VISITED");
+    this.visited = true;
+        return { "towns_id":this.towns_id, "users_id":this.users_id, "visited":this.visited };
+  };
   NewUserTownEntry.prototype.wantToGo = function() {
     console.log("THIS in Want to Go: ", this);
     console.log("this.visited: ", this.visited);
@@ -109,11 +116,23 @@ $( document ).ready(
 
   function UserTownEntry( responseObject ) {
     const obj = responseObject;
-    this.id = parseInt( obj[ "id" ] );
+    this.id = parseInt( obj.id );
     this.towns_id = parseInt( obj[ "towns_id" ] );
     this.users_id = parseInt( obj[ "users_id" ] );
     this.visited = obj[ "visited" ];
   }
+  UserTownEntry.prototype.beenThere = function() {
+    console.log("ABOUT TO SET VISITED");
+    this.visited = true;
+        return { "id":this.id, "towns_id":this.towns_id, "users_id":this.users_id, "visited":this.visited };
+  };
+  UserTownEntry.prototype.wantToGo = function() {
+    console.log("THIS in Want to Go: ", this);
+    console.log("this.visited: ", this.visited);
+    this.visited = false;
+
+    return { "id":this.id, "towns_id":this.towns_id, "users_id":this.users_id, "visited":this.visited };
+  };
   // .toggleVisited - change true to false and false to true
   UserTownEntry.prototype.toggleVisited = function() {
     if ( this.visited ) {

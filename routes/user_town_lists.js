@@ -85,7 +85,7 @@ router.get('/user_town_lists/false', function (req, res, next) {
     } );
 } );
 //check if entry for user+town already exists
-<<<<<<< HEAD
+
 router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
   console.log("did something");
   const token = req.cookies.token;
@@ -167,23 +167,28 @@ router.post( '/user_town_lists', ( req, res, next ) => {
     } );
 } );
 router.patch( '/user_town_lists/:id', ( req, res, next ) => {
-  const id = Number.parseInt( req.param.id );
+  console.log("req.param.id: ", req.params.id);
+  const id = Number.parseInt( req.params.id );
   if ( Number.isNaN( id ) ) {
     return next();
   }
+  console.log("id: ", id);
   knex( 'user_town_lists' )
     .where( 'id', id )
-    .first()
     .then( ( user_town_list ) => {
+      console.log("user_town_list: ", user_town_list);
       if ( !user_town_list ) {
         throw boom.create( 404, 'Not Found' );
       }
-      const {
+      const { id,
         visited,
         towns_id,
         users_id
       } = req.body;
       const update_user_town_list = {};
+      if ( id ) {
+        update_user_town_list.id = id;
+      }
       if ( visited ) {
         update_user_town_list.visited = visited;
       }
@@ -193,8 +198,10 @@ router.patch( '/user_town_lists/:id', ( req, res, next ) => {
       if ( users_id ) {
         update_user_town_list.users_id = users_id;
       }
-      return knex( 'user_town_lists', '*' )
-        .where( 'id', id );
+      console.log("update_user_town_list: ", update_user_town_list);
+      return knex( 'user_town_lists' )
+        .where( 'id', id )
+        .update(update_user_town_list, '*');
     } )
     .then( ( data ) => {
       const user_town_list = ( data[ 0 ] );
