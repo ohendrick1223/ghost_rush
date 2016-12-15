@@ -8,7 +8,12 @@
   height: 500px;
   background-color: #CCC;
   margin: auto;
+}
 
+#firstHeading {
+  font-size: 17px;
+  font-weight: bold;
+  /*text-decoration: underline;*/
 }
 
 .markerInfoPhoto {
@@ -34,4 +39,8 @@
 
 #footerAdmin {
   margin-right: 10px;
+}
+
+#footerLogOut {
+  padding-right: 10px;
 }

@@ -2,7 +2,6 @@
 
 
 (function() {
-console.log("getting to logout.js");
   $('.button-collapse').sideNav();
 
   $(".logOut").click((event) => {

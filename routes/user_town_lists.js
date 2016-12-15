@@ -16,7 +16,6 @@ const authorize = function( req, res, next ) {
 };
 
 //populate cards
-
 router.get('/user_town_lists/true', function (req, res, next) {
   const token = req.cookies.token;
   console.log(token);
@@ -50,6 +49,7 @@ router.get('/user_town_lists/true', function (req, res, next) {
 } );
 
 
+
 router.get('/user_town_lists/false', function (req, res, next) {
   const token = req.cookies.token;
   console.log(token);
@@ -70,14 +70,13 @@ router.get('/user_town_lists/false', function (req, res, next) {
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
-      'user_town_lists.users_id': req.cookies.token.user.id,
+
+      'user_town_lists.users_id': req.body.users_id,
       'user_town_lists.visited': false
     })
     .orderBy('towns.name', 'ASC')
-    // console.log("queried db");
-    .then((data) => {
-    // .orderBy( 'towns.name', 'ASC' )
-    // .then( ( data ) => {
+    .then( ( data ) => {
+
       const list = data;
       res.send( list );
     } )
@@ -86,6 +85,7 @@ router.get('/user_town_lists/false', function (req, res, next) {
     } );
 } );
 //check if entry for user+town already exists
+<<<<<<< HEAD
 router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
   console.log("did something");
   const token = req.cookies.token;
@@ -129,6 +129,7 @@ router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
       next();
   }
 } );
+
 
 
 //get user_town_lists
