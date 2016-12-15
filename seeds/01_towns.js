@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Founded in 1859, it soon acquired the reputation of being in the middle of 'the richest square mile on earth.' By the end of its second year, most of the placer gold was gone which forced hard rock mining into being. Over speculation of some mining stocks created a real depression for a while, but the area survived and had good years during the '70s and '80s. Like most other mining towns of the era, Central City had its share of fires that ultimately resulted in brick being the material of choice with which to rebuild the town.",
                     cemetery: 'Yes',
                     mineral_found: 'Gold',
-                    tour_avail: true,
+                    tour_avail: 'yes',
                     longitude: -105.514164,
                     latitude: 39.801932
                 }),
@@ -32,7 +32,7 @@ exports.seed = function(knex, Promise) {
                     description_now: 'Numerous remains of log cabins; property off limits due to beetle kill prevention efforts',
                     cemetery: 'No',
                     mineral_found: 'Silver',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -105.076354,
                     latitude: 39.681111
                 }),
@@ -47,7 +47,7 @@ exports.seed = function(knex, Promise) {
                     description_now: 'Numerous buildings still stand including a church, school, playhouse, jail, grocery store',
                     cemetery: 'Yes',
                     mineral_found: 'Silver',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -105.725839,
                     latitude: 39.696098
                 }),
@@ -62,7 +62,7 @@ exports.seed = function(knex, Promise) {
                     description_now: 'During the winter of 1899 the worst storm in Colorado’s history cut off the supply routes to Independence. The miners, who were running out of food, proceeded to dismantle their homes to make 75 pairs of skis and to escape en masse to Aspen. They made light of their adventure by making it a race of the Hunter’s Pass Ski Club—entry fee: one ham sandwich.',
                     cemetery: 'No',
                     mineral_found: 'Gold',
-                    tour_avail: true,
+                    tour_avail: 'yes',
                     longitude: -81.637903,
                     latitude: 41.368665
                 }),
@@ -77,7 +77,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Today, most of the town of Crystal is owned by the relatives of Emmet Gould. Mr. Gould bought lots, cabins, and several claims in and around Crystal during the 1940s. In 1948, the family of Welcome Joe Neal began vacationing in Crystal. Joe Neal's family owns three cabins. Rob Anderson owns the house that his grandfather built in the late 1800s. Richard Beamon also owns a cabin. These owners live in Crystal during the summer months only. There is a small general store, public outhouse, and some of the cabins are available for summer rentals.",
                     cemetery: 'No',
                     mineral_found: 'Silver, lead, copper, iron, and zinc. Very little gold was found in Crystal',
-                    tour_avail: true,
+                    tour_avail: 'yes',
                     longitude: -107.102661,
                     latitude: 39.059772
                 }),
@@ -92,7 +92,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "A popular 1950s TV series called Sgt.Preston of the Yukon was filmed in Ashcroft so many of the current buildings today were fitted with false fronts. Ashcroft became a National Register Historic Site and holds the first USFS permit granted to a historical society to preserve and interpret a ghost town.",
                     cemetery: 'No',
                     mineral_found: 'Silver',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -106.79976,
                     latitude: 39.053601
                 }),
@@ -107,7 +107,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Even though St. Elmo is considered a ghost town it is still inhabited. Tourism brings many people to the St. Elmo area every year. The old mining roads are now used as Jeep and four-wheeler trails. There are also many good places to fish along Chalk Creek, which runs through St. Elmo. The general store is open during the summer, when tourists can rent four-wheelers or buy items. Many of the buildings are still intact. However, the town hall and a few other buildings burnt down in 2002. Buena Vista Heritage is rebuilding the town hall to its original state.",
                     cemetery: 'No',
                     mineral_found: 'Gold, Silver',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -106.346223,
                     latitude: 38.703365
                 }),
@@ -122,7 +122,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Present day Animas Fork continues as a tourist attraction. A Colorado State Historical Fund grant to San Juan County, in cooperation with the Bureau of Land Management, provided for stabilization of the remaining structures in 1997 and 1998.",
                     cemetery: "Yes",
                     mineral_found: "Silver",
-                    tour_avail: true,
+                    tour_avail: 'yes',
                     longitude: -107.570046,
                     latitude: 37.932293
                 }),
@@ -137,7 +137,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Gilman was abandoned in 1984 by order of the Environmental Protection Agency because of toxic pollutants, including contamination of the ground water, as well as unprofitability of the mines. It is currently a ghost town on private property and is strictly off limits to the public.",
                     cemetery: 'Yes',
                     mineral_found: 'Silver, Lead',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -106.393918,
                     latitude: 39.532764
                 }),
@@ -152,7 +152,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Most of the town was destroyed it's 2nd fire in 1899. Sherman House hotel remains, a cabin, and gravestones remain.",
                     cemetery: 'Yes',
                     mineral_found: 'Silver',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -105.512776,
                     latitude: 39.989987
                 }),
@@ -167,7 +167,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "Aging gracefully",
                     cemetery: 'No',
                     mineral_found: 'Gold',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -105.270546,
                     latitude: 40.014986
                 }),
@@ -182,7 +182,7 @@ exports.seed = function(knex, Promise) {
                     description_now: "A few old buildings and things. Silver is long gone.",
                     cemetery: 'Yes',
                     mineral_found: 'Silver',
-                    tour_avail: false,
+                    tour_avail: 'unknown',
                     longitude: -104.971924,
                     latitude: 39.868041
                 })
