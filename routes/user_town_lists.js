@@ -23,13 +23,14 @@ const authorize = function( req, res, next ) {
 
 //populate cards
 
-router.get('/user_town_lists', authorize, function (req, res, next) {
+router.get('/user_town_lists/true', authorize, function (req, res, next) {
+
 
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
-      'id': req.body.user_id,
-      'user_town_lists.user_id': req.token.user_id,
+      'user_town_lists.user_id': req.cookies.token.user.id,
+      'user_town_lists.visited': true
     })
     .orderBy('towns.name', 'ASC')
     .then((data) => {
@@ -40,7 +41,24 @@ router.get('/user_town_lists', authorize, function (req, res, next) {
       next( err );
     } );
 } );
+router.get('/user_town_lists/false', authorize, function (req, res, next) {
 
+  knex( 'user_town_lists' )
+    .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
+    .where( {
+      'user_town_lists.user_id': req.cookies.token.user.id,
+      'user_town_lists.visited': false
+    })
+    .orderBy('towns.name', 'ASC')
+    .then( ( data ) => {
+      const list = data;
+      res.send( list );
+    } )
+    .catch( ( err ) => {
+      next( err );
+    } );
+} );
+//check if entry for user+town already exists
 router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
 
   knex( 'user_town_lists' )
@@ -58,41 +76,7 @@ router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
     } );
 } );
 
-router.get( '/user_town_lists/true', authorize, function( req, res, next ) {
 
-  knex( 'user_town_lists' )
-    .where( {
-      'user_id': req.body.user_id,
-      'town_id': req.body.town_id,
-      'visited': true
-    } )
-    .orderBy( 'user_id', 'ASC' )
-    .then( ( data ) => {
-      const list = data;
-      res.send( list );
-    } )
-    .catch( ( err ) => {
-      next( err );
-    } );
-} );
-
-router.get( '/user_town_lists/false', authorize, function( req, res, next ) {
-
-  knex( 'user_town_lists' )
-    .where( {
-      'user_id': req.body.user_id,
-      'town_id': req.body.town_id,
-      'visited': false
-    } )
-    .orderBy( 'user_id', 'ASC' )
-    .then( ( data ) => {
-      const list = data;
-      res.send( list );
-    } )
-    .catch( ( err ) => {
-      next( err );
-    } );
-} );
 
 //get user_town_lists
 //user_id and town_id if there's the match we need to send back object if not
