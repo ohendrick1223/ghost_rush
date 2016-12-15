@@ -17,12 +17,26 @@ const authorize = function( req, res, next ) {
 
 //populate cards
 
-router.get('/user_town_lists/true', authorize, function (req, res, next) {
+router.get('/user_town_lists/true', function (req, res, next) {
+  const token = req.cookies.token;
+  console.log(token);
+  if (token) {
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+          if (err) {
+              res.redirect('../map.html');
+          }
+          req.user = decoded;
+          console.log(req.user);
 
+
+      });
+  } else {
+      next();
+  }
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
-      'user_town_lists.user_id': req.cookies.token.user.id,
+      'user_town_lists.users_id': req.user.id,
       'user_town_lists.visited': true
     })
     .orderBy('towns.name', 'ASC')
@@ -36,16 +50,31 @@ router.get('/user_town_lists/true', authorize, function (req, res, next) {
 } );
 
 
-router.get('/user_town_lists/false', authorize, function (req, res, next) {
+router.get('/user_town_lists/false', function (req, res, next) {
+  const token = req.cookies.token;
+  console.log(token);
+  if (token) {
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+          if (err) {
+              res.redirect('../map.html');
+          }
+          req.user = decoded;
+          console.log(req.user);
+
+
+      });
+  } else {
+      next();
+  }
   console.log("route accessed");
   knex( 'user_town_lists' )
     .innerJoin( 'towns', 'towns.id', 'user_town_lists.towns_id' )
     .where( {
-      'user_town_lists.user_id': req.cookies.token.user.id,
+      'user_town_lists.users_id': req.cookies.token.user.id,
       'user_town_lists.visited': false
     })
     .orderBy('towns.name', 'ASC')
-    console.log("queried db");
+    // console.log("queried db");
     .then((data) => {
     // .orderBy( 'towns.name', 'ASC' )
     // .then( ( data ) => {
@@ -57,28 +86,53 @@ router.get('/user_town_lists/false', authorize, function (req, res, next) {
     } );
 } );
 //check if entry for user+town already exists
-router.get( '/user_town_lists/validate', authorize, function( req, res, next ) {
-  knex( 'user_town_lists' )
-    .where( {
-      // 'user_id': req.cookies.token.user.id,
-      'town_id': req.body.town_id
-    } )
-    .then( ( data ) => {
-      const entry = data;
-      const responseObject = {
-        data: entry,
-        userID: req.cookies.token.user.id
-      }
-      res.send( responseObject );
-    } )
-    .catch( ( err ) => {
-      next( err );
-    } );
+router.get( '/user_town_lists/validate/:id', function( req, res, next ) {
+  console.log("did something");
+  const token = req.cookies.token;
+  console.log(token);
+  if (token) {
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+          if (err) {
+              res.redirect('../map.html');
+          }
+          req.user = decoded;
+          console.log(req.user);
+          console.log(req.user.userId);
+
+          const id = Number.parseInt(req.params.id);
+
+          if (Number.isNaN(id)) {
+              return next();
+          }
+
+          knex( 'user_town_lists' )
+          .where( {
+            'users_id': req.user.userId,
+            'towns_id': id
+          } )
+          .then( ( data ) => {
+            const entry = data;
+            const responseObject = {
+              data: entry,
+              userId: req.user.userId
+            }
+            console.log(responseObject);
+            res.send( responseObject );
+          } )
+          .catch( ( err ) => {
+            next( err );
+          } );
+
+      });
+  } else {
+    console.log("did something else");
+      next();
+  }
 } );
 
 
 //get user_town_lists
-//user_id and town_id if there's the match we need to send back object if not
+//users_id and towns_id if there's the match we need to send back object if not
 
 router.post( '/user_town_lists', ( req, res, next ) => {
   const towns_id = Number.parseInt( req.body.towns_id );
