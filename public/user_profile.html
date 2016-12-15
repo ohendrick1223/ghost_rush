@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/user_prof.css">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col s6 border offset-s3 z-depth-2">
+                <div id="pib-box" class="col s6 left border">
                     <div id="profileInfoBox">
                       <!-- jquery rendering -->
                     </div>
@@ -45,24 +46,37 @@
             </div>
 
             <div class="row">
-              <div class="col s1 border z-depth-2 center-align">
+              <div class="row">
+              <div id="wtg-box" class="col s12 border center-align">
               <p id="wantGalleryTitle">Want to Go</p>
+            </div>
+            </div>
               </div>
+
+              <div id="wtg-row" class="row">
               <div class="row wantTownCard">
                 <!-- dynamically load ghost town name/photo here, as well as container from users.js populateCard function line 28 -->
             </div>
-        </div>
+          </div>
+        <!-- </div> -->
 
             <div class="row">
-              <div class="col s1 border z-depth-2 center-align">
-              <p id="beenGalleryTitle">Been there</p>
+              <div class="row">
+              <div id="bgt-box" class="col s12 border center-align">
+                <p id="beenGalleryTitle">Been There</p>
               </div>
-              <div class="row beenTownCard">
-                <!-- dynamically load ghost town name/photo here, as well as card container below -->
             </div>
+              <div id="btc-row" class="row">
+                <div class="col s12">
+                  <div class="row beenTownCard">
+                    <!-- dynamically load ghost town name/photo here, as well as card container below -->
+                  </div>
+                </div>
+              </div>
         </div>
 
       </div>
+
     </main>
 
     <footer class="page-footer">
