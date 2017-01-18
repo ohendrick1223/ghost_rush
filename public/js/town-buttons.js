@@ -72,15 +72,20 @@ $( document ).ready(
             }
             // post to database
             $.ajax( {
-              url: '/user_town_lists',
-              method: 'POST',
-              dataType: 'json',
-              data: myData,
-              context: townEntryRequest,
-              complete: function() {
-                console.log( "finished!" );
-              }
-            } );
+                url: '/user_town_lists',
+                method: 'POST',
+                dataType: 'json',
+                data: myData,
+                context: townEntryRequest,
+                complete: function() {
+                  console.log( "finished!" )
+                }
+              } )
+              // $.post( '/user_town_lists',
+              //   townEntryRequest );
+              // .done( () => {
+              //TODO toast success message
+              // } )
           }
         } );
 
