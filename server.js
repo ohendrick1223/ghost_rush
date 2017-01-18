@@ -38,7 +38,7 @@ app.use(express.static(path.join('public')));
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const towns = require('./routes/towns');
-// const user_town_lists = require('./routes/user_town_lists');
+const user_town_lists = require('./routes/user_town_lists');
 const admin_page = require('./routes/admin_page');
 
 app.use(express.static('./public'));
@@ -47,7 +47,7 @@ app.use(express.static('./public'));
 app.use(users);
 app.use(auth);
 app.use(towns);
-// app.use(user_town_lists);
+app.use(user_town_lists);
 app.use('/admin_page', admin_page);
 
 app.use((_req, res) => {
