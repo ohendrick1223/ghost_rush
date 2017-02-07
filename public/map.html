@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/map.css">
-    <!-- <script src="js/map.js"></script> -->
 </head>
 
 <body>
@@ -41,18 +40,24 @@
             <div class="row-map">
                 <div class="col s12">
                     <div id="mapTitle">
-                        <p>Welcome! Please select a marker to learn more about a specific location, and enjoy your time exploring!</p>
+                        <p>Explore</p>
                     </div>
                 </div>
                 <!--col s12-->
             </div>
             <!--row-->
             <div class="row">
-                <div class="vignette">
+                <div class="vignette col s9">
                     <div id="map">
                     </div>
                 </div>
+
+            <div class="mapInfoText col s3">
+              <p>Peruse the markers on the left to learn where Ghost Towns are located.</p><br>
+              <p>Click on the Ghost Town titles in the info windows to learn about the rich history of individual towns.</p><br>
+              <p>Keep a favorites list of the Ghost Towns your most excited to visit.</p><br>
             </div>
+          </div>
         </div>
         <!--container-->
 
@@ -69,10 +74,6 @@
                     <div id="footerHelp" class="right right-footer-link">
                         <a href="#">Help</a>
                     </div>
-
-                    <div id="footerAdmin" class="right right-footer-link">
-                        <a href="/admin_page">Admin</a>
-                    </div>
                     <!-- end right footer link -->
                 </div>
             </div>
@@ -82,9 +83,6 @@
 
         <div class="footer-copyright">
             <div class="container">
-                <div class="center-align">
-                    © 2016 Ladies Exploration League. All rights reserved.
-                </div>
             </div>
             <!--container-->
         </div>
@@ -94,6 +92,7 @@
 </body>
 
 <!--Import jQuery before materialize.js-->
+<script src="/public/jquery-checker.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/map.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWOOEwksV1xbyyjRGv4BEvXlT7PrdTOoQ&callback=init">

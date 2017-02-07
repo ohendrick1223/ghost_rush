@@ -1,95 +1,105 @@
 
+body {
+  background-color: #e9e7da;
+}
+
+/*over-ride materialize padding*/
+main {
+    padding-top: 0rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 150px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding: 100px;
+  opacity: .7;
+  color: #cda34f;
+  text-shadow: 2px 2px 4px #373f27;
+}
 
 #bannerPhoto{
-  background-image: url('../images/Ghost_Rush_Green_Text.png');
+  /*background-image: url('../images/Ghost_Rush_Green_Text.png');*/
+  background-image: url('../images/ghost-town2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 500px;
-  color: black;
+  height: 1000px;
+  color: #373f27;
   opacity: 0.9;
 }
 
 #bannerPhotoH5Container{
-  width: 550px;
+  width: 700px;
 }
 
 #bannerPhotoH5{
-  margin-top: 19rem;
-  padding: 30px;
+  margin-top: 2rem;
+  padding: 20px;
   font-weight: 400;
-  background-color: rgba(228, 225, 225, 0.6);
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: rgb(112, 48, 16);
+  opacity: .5;
+  color: #e9e7da;
+  text-shadow: 2px 2px 4px #373f27;
+  border-radius: 5px;
+
 }
 
+
 #splashInfoHeader{
-  color: #373f27;
+  color: #636b46;
+  background-color: #e9e7da;
   font-family: 'Josefin Sans', sans-serif;
+  text-shadow: 2px 2px 4px #373f27;
 }
 
 #splashInfoPara{
   color: #636b46;
   font-family: 'Josefin Sans', sans-serif;
+  text-shadow: .3px .3px .3px #373f27;
 }
 
 #splashMapHeader{
-  color: #373f27;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 30px;
+  color: #e9e7da;
+  text-shadow: 2px 2px 4px #373f27;
 }
 
 #splashMapDiv{
-  background-color: #e9e7da;
+  background-color: rgb(132, 57, 19);
   padding-bottom: 15px;
 }
 
-#splashSignUpLogo{
-transform: rotate(360deg);
-animation-iteration-count: infinite;
-  /*animation-duration: 3s;
-  animation-name: slidein;
-  animation-delay: 8s;
+.staticMap{
+  margin-top: 70px;
 }
 
-@keyframes slidedown {
-  from {
-    margin-top: 100%;
-    width: 20%;
-  }
-
-  to {
-    margin-bottom: 0%;
-    width: 100%;
-  }*/
-
-  padding-right: 15px;
+#splashExplorationDiv {
+  background-color: rgb(132, 57, 19);
 }
 
 #splashExplorationButton{
-  background-color:#373f27;
+  color: #e9e7da;
+  background-color:#636b46;
+  text-shadow: 2px 2px 4px #373f27;
+  border-radius: 5px;
 }
 
 .splashMapList{
-  color: #636b46;
+  color: #e9e7da;
   font-size: 20px;
   font-family: 'Josefin Sans', sans-serif;
 }
 
-#mainLogo {
-  animation-duration: 6s;
-  animation-name: slidein;
-
+.highlight{
+  color: #bca44e;
 }
 
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 50%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-
-
+/*Scrolling effects*/
+.hidden{
+     opacity:0;
+}
+.visible{
+     opacity:1;
 }

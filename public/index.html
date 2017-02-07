@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/splash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <!-- nav-wrapper -->
         <nav role="navigation" id="nav-header">
             <div  class="nav-wrapper container navContainer">
-                <a id="mainLogo" href="index.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush " height="70px" width="70px" class="-small"></a>
+                <a href="index.html" class="brand-logo"><img src="images/ghost-rush.png" alt="ghost rush " height="70px" width="70px" class="-small"></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="sign_up.html" id="navLink1">Sign Up</a></li>
                 </ul>
@@ -38,11 +39,13 @@
 
     <main>
         <!-- BannerPhoto -->
-        <div class="section no-pad-bot">
+        <div>
             <div id="bannerPhoto">
-
+                <div class="title splashFading">
+                  GHOST RUSH
+                </div>
                 <div id ="bannerPhotoH5Container" class="row center">
-                    <h5 id ="bannerPhotoH5" class="header col s12 light center-align">Your Guide to Colorado's Ghost Towns</h5>
+                    <h5 id ="bannerPhotoH5" class="header col s12 light center-align splashFading">Your Guide to Colorado's Ghost Towns</h5>
                 </div>
                 <br><br>
 
@@ -53,10 +56,27 @@
         <div class="section no-pad-bot" id="splashInfoDiv">
             <div class="container">
                 <br><br>
-                <h1 id = "splashInfoHeader" class="header center">Start Adventuring :</h1>
+                <h1 id = "splashInfoHeader" class="header center splashFading">Adventure.</h1>
                 <br>
                 <div class="row center ">
-                    <h5 id = "splashInfoPara" class="header col s12 light">Ghost Rush provides an interactive web platform <br>to fulfill all your Ghost Town exploring needs<br> in the Colorado area.</h5>
+                    <h5 id = "splashInfoPara" class="header col s12 light">
+                      <div class="splashFading"><b class="highlight">Ghost Rush</b> provides a place for History Enthusiasts, Avid Explorers and anyone interested in the vivid stories of Colorado's many abandoned towns.
+                      </div><br><br>
+                      <div class="splashFading">
+                        <i>A<b class="highlight"> Ghost Town</b> is any deserted town, village or city with substantial remains. Often times, a ghost town is created because the economic activity supporting it has failed, or due to natural or human-caused disasters such as floods, government actions, uncontrolled lawlessness, war, or nuclear disasters.<br><br> The term can sometimes refer to cities, towns, and neighborhoods that are still populated, but significantly less so than in years past; for example those affected by high levels of unemployment and dereliction.</i></div><br><br>
+                        <div class="splashFading">
+                          Exploring a Colorado Ghost Town is a unique way to learn about the history of the <i class="highlight">Wild West</i>.
+                          <ul>
+                            <li>- Gain a deeper understanding of the Mining Boom of the late 19th and early 20th centuries.</li>
+                            <li>- Contextualize the Expansion of the West and what a major role these once thriving towns played.</li>
+                          </ul>
+                        </div><br><br>
+                        <div class="splashFading">
+                          <i>Experience</i> Colorado.<br><i>Touch</i> the past.<br><i>Visit</i> a Colorado Ghost Town, and start your next adventure.
+                        </div>
+                      </h5>
+
+
                 </div>
                 <br><br>
 
@@ -69,16 +89,16 @@
                 <div class="row center">
                   <div class="col s6">
                     <br>
-                    <h5 id="splashMapHeader">What you get :</h5><br>
-                  <ul>
-                    <li class="splashMapList"> - Access an interactive map.</li>
+                    <h4 id="splashMapHeader" class="splashFading">Join the Ghost Rush Community</h4><br>
+                  <ul class="splashMapList">
+                    <li class="splashFading">Access an Interactive Map with the location of even the most remote towns.</li>
                     <br>
-                    <li class="splashMapList"> - View town profiles with historical data.</li>
+                    <li class="splashFading">Learn the story of each Ghost Town, and what to expect when you visit.</li>
                     <br>
-                    <li class="splashMapList"> - Personalize your profile with towns<br>you have been to or want to visit.</li>
+                    <li class="splashFading">Add towns to your Favorites list and keep track of where you might explore next.</li>
                   </ul></div>
                   <div class="col s6">
-                    <img src="images/map_screenshot.png" alt="Map View Example" height="300px" width="auto">
+                    <img class="staticMap" src="images/map_screenshot.png" alt="Map View Example" height="300px" width="auto">
                   </div>
                   </div>
                 </div>
@@ -89,11 +109,7 @@
             <div class="container">
                 <br><br>
                 <div class="row center">
-                  <img id="splashSignUpLogo" class="center" src="images/ghost_solo_logo.png" alt="Ghost Logo" height="100px" width="auto">
-                <br><br>
-              </div>
-                <div class="row center">
-                    <a id ="splashExplorationButton" class="waves-effect waves-light btn" href="sign_up.html">Begin Your Exploration</a>
+                    <a id ="splashExplorationButton" class="waves-effect waves-light btn splashFading" href="sign_up.html">Sign up for Ghost Rush</a>
                 </div>
                 <br><br>
 
@@ -121,9 +137,6 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                <div class="center-align">
-                    © 2016 Ladies Exploration League. All rights reserved.
-                </div>
             </div>
         </div>
         <!-- end footer -->
@@ -133,7 +146,8 @@
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/jquery-checker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/splash.js"></script>
 
 </html>

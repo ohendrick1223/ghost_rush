@@ -3,7 +3,7 @@
 /*#map {
   height: 100%;
 }*/
-.vignette {
+/*.vignette {
   background: url("http://lorempixum.com/400/200/nature/5");
   width: 750px; height: 540px; margin: auto; padding: 10px;
   -webkit-box-shadow:
@@ -20,24 +20,30 @@
     		inset 0 0 50px #373f27,
                 inset 0 0 50px #000,
                 inset 0 0 50px #000;
-}
+}*/
 
 #map {
   width: 700px;
   height: 500px;
   background-color: #CCC;
-  /*margin: auto;*/
   display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;;
-    /*margin-bottom: inherit;;*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  border: 10px solid;
+  border-image-source: url('/images/ghost-town4.jpg');
+  border-style: solid;
+  border-width: 10px;
+border-image-source: linear-gradient(90deg, rgba(92, 151, 173, 1), rgba(255,255,255,1), rgba(92, 151, 173, 1));
+border-image-slice: 20;
+border-image-repeat: stretch;
+box-shadow: 0px 0px 10px black;
 }
 
 #firstHeading {
   font-size: 17px;
   font-weight: bold;
-  /*text-decoration: underline;*/
 }
 
 .markerInfoPhoto {
@@ -51,19 +57,33 @@
 #mapTitle{
   text-align: center;
   margin:3px;
-  /*padding: 1px;*/
-  /*font-family:'IM Fell English SC', serif;*/
-  font-family: 'Special Elite';
-  font-size: 2em;
+  padding: 1px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3em;
   color: #e9e7da;
   text-shadow: 2px 2px 4px #373f27;
 }
 
+.mapInfoText {
+  /*text-align: center;*/
+/*margin: 3px;*/
+/*padding: 1px;*/
+font-family: 'Josefin Sans', sans-serif;
+font-size: 20px;
+color: #e9e7da;
+text-shadow: 2px 2px 4px #373f27;
+}
+
+
 #mainMapBackground{
   /*background-color: rgba(205,163,79, 0.3);*/
-  background-color: rgba(99,107,70, 0.8);
+  /*background-color: #636B46;*/
+  background: url('/images/ghost-town6.jpeg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; fixed;
   padding-top: 0;
-/*background-color: #636b46;*/
 }
 
 

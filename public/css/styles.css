@@ -5,7 +5,7 @@
 nav, .nav-wrapper {
   height: 75px;
   line-height: 75px;
-  background-color: #e9e7da;
+  background-color: rgb(112, 48, 16);
 }
 
 nav ul a {
@@ -19,7 +19,7 @@ a{
 }
 
 footer.page-footer {
-  background-color: #e9e7da;
+  background-color: rgb(112, 48, 16);
   margin-top: 0px;
 }
 
